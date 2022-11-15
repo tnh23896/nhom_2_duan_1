@@ -13,7 +13,7 @@ License: You must have a valid license purchased only from themeforest(the above
 -->
 <html lang="en">
 	<!--begin::Head-->
-	<head><base href="">
+	<head>
 		<meta charset="utf-8" />
 		<title><?php echo $title ?></title>
 		<meta name="description" content="Updates and statistics" />
