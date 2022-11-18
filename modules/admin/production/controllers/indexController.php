@@ -22,14 +22,15 @@ function createPostAction() {
     $count = $_POST['count'];
     $price = $_POST['price'];
     $status = $_POST['status'];
-    $thumb = $_FILES['thumb']['name'];
+    $thumb = $_FILES['thumb'];
+    $thumb_name = $_FILES['thumb']['name'];
     move_uploaded_file($thumb['tmp_name'], 'public/images/' . $thumb['name']);
     if (empty($title)) {
-        // push_notification('danger', ['Vui lòng nhập vào tên danh mục']);
+        push_notification('danger', ['Vui lòng nhập vào tên danh mục']);
         header('Location: ?role=admin&mod=production&action=create');
         die();
     }
-    create_production($title,$category_id,$description,$count,$price,$status,$thumb);
+    create_production($title,$category_id,$description,$count,$price,$status,$thumb_name);
     push_notification('success', ['Tạo mới sản phẩm thành công']);
     header('Location: ?role=admin&mod=production');
 }
@@ -67,7 +68,7 @@ function updatePostAction() {
     $count = $_POST['count'];
     $price = $_POST['price'];
     $status = $_POST['status'];
-    $thumb = $_POST['thumb'];
+    $thumb = $_FILES['thumb'];
     if (empty($title)) {
         push_notification('errors', [
             'title' => 'Vui lòng nhập vào tiêu đề sản phẩm'

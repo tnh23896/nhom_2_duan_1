@@ -68,12 +68,12 @@
                             <tr>
                                 <th title="Field #1">ID Sản phẩm</th>
                                 <th title="Field #2">Tiêu đề sản phẩm</th>
-                                <th title="Field #3">Tên danh mục</th>
-                                <th title="Field #4">Ngày tạo</th>
-                                <th title="Field #5">Số lượng</th>
-                                <th title="Field #6">Giá Tiền</th>
-                                <th title="Field #7">Hành động</th>
-                                <th title="Field #7">Mô tả</th>
+                                <th title="Field #4">Tên danh mục</th>
+                                <th title="Field #5">Ngày tạo</th>
+                                <th title="Field #6">Số lượng</th>
+                                <th title="Field #7">Giá Tiền</th>
+                                <th title="Field #8">Hành động</th>
+                                <th title="Field #8">Mô tả</th>
                             </tr>
                         </thead>
                         <tbody>
