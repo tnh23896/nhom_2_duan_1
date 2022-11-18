@@ -30,7 +30,7 @@
                         <div class="col col-12">
                             <div class="form-group">
                                 <label>Tiêu đề sản phẩm</label>
-                                <input type="text" name="name" class="form-control" placeholder="Nhập vào tiêu đề sản phẩm" />
+                                <input type="text" name="title" class="form-control" placeholder="Nhập vào tiêu đề sản phẩm" />
                             </div>
                             <div class="form-group">
                                 <label>Danh mục sản phẩm</label>
@@ -84,15 +84,6 @@
                                     <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Xoá ảnh đại diện">
                                         <i class="ki ki-bold-close icon-xs text-muted"></i>
                                     </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col col-9">
-                            <div><label>Hình ảnh sản phẩm</label></div>
-                            <div class="dropzone dropzone-default dropzone-primary" id="kt_dropzone_3">
-                                <div class="dropzone-msg dz-message needsclick">
-                                    <h3 class="dropzone-msg-title">Kéo thả hình ảnh cần upload</h3>
-                                    <span class="dropzone-msg-desc">Chỉ chấp nhận tải lên file hình ảnh</span>
                                 </div>
                             </div>
                         </div>
