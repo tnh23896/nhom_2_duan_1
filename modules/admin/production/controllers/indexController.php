@@ -52,6 +52,7 @@ function updateAction()
 {
     $id = $_GET['id_prod'];
     $prod = get_one_production($id);
+    $data['categories'] = get_list_categories();
     $data['production'] = $prod;
     if ($prod) {
         load_view('update', $data);
@@ -77,7 +78,7 @@ function updatePostAction()
     $thumb = $_FILES['thumb']['name'];
     if (empty($title)) {
         push_notification('errors', [
-            'name' => 'Vui lòng nhập vào tiêu đề sản phẩm'
+            'title' => 'Vui lòng nhập vào tiêu đề sản phẩm'
         ]);
         header('Location: ?role=admin&mod=production&action=update&id_prod=' . $id);
     }
