@@ -1,4 +1,4 @@
-<?php get_header('', 'test') ?>
+<?php get_header('', 'Trang chủ') ?>
     <main class="">
         <section class="mb-[33px] ">
             <img src="public/images/banner.png" alt="" class="w-full">

@@ -54,11 +54,11 @@
             </div>
             <nav class="menu w-full h-[65px] bg-[#198754] flex items-center justify-center ">
                 <ul class="flex justify-around gap-9">
-                    <li class="text-[#ffffff]"><a href="">Trang chủ</a></li>
-                    <li class="text-[#ffffff]"><a href="">Trang chủ</a></li>
-                    <li class="text-[#ffffff]"><a href="">Trang chủ</a></li>
-                    <li class="text-[#ffffff]"><a href="">Trang chủ</a></li>
-                    <li class="text-[#ffffff]"><a href="">Trang chủ</a></li>
+                    <li class="text-[#ffffff]"><a href="http://localhost/nhom_2_du_an_1">Trang chủ</a></li>
+                    <li class="text-[#ffffff]"><a href="http://localhost/nhom_2_du_an_1/?action=login">Đăng nhập</a></li>
+                    <li class="text-[#ffffff]"><a href="http://localhost/nhom_2_du_an_1/?action=register">Đăng ký</a></li>
+                    <li class="text-[#ffffff]"><a href="http://localhost/nhom_2_du_an_1/?action=cart">Giỏ hàng</a></li>
+                    <li class="text-[#ffffff]"><a href="http://localhost/nhom_2_du_an_1/?action=account">Tài khoản</a></li>
                 </ul>
             </nav>
         </header>

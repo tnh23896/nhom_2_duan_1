@@ -69,7 +69,7 @@
                             <th title="Field #1">ID Sản phẩm</th>
                             <th title="Field #2">Tiêu đề sản phẩm</th>
                             <th title="Field #3">Tên danh mục</th>
-                            <th title="Field #4">Ảnh</th>
+                            <th title="Field #4">Hình ảnh</th>
                             <th title="Field #5">Ngày tạo</th>
                             <th title="Field #6">Số lượng</th>
                             <th title="Field #7">Giá Tiền</th>
