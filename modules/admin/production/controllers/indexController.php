@@ -45,6 +45,7 @@ function updateAction()
 {
     $id = $_GET['id_prod'];
     $prod = get_one_production($id);
+    $data['categories'] = get_list_categories();
     $data['production'] = $prod;
     if ($prod) {
         load_view('update', $data);
@@ -66,11 +67,10 @@ function updatePostAction() {
     $count = $_POST['count'];
     $price = $_POST['price'];
     $status = $_POST['status'];
-    $thumb = $_FILES['thumb']['name'];
-    move_uploaded_file($thumb['tmp_name'], 'public/images/' . $thumb['name']);
+    $thumb = $_POST['thumb'];
     if (empty($title)) {
         push_notification('errors', [
-            'name' => 'Vui lòng nhập vào tiêu đề sản phẩm'
+            'title' => 'Vui lòng nhập vào tiêu đề sản phẩm'
         ]);
         header('Location: ?role=admin&mod=production&action=update&id_prod='.$id);
     }

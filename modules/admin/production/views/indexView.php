@@ -73,7 +73,7 @@
                                 <th title="Field #5">Số lượng</th>
                                 <th title="Field #6">Giá Tiền</th>
                                 <th title="Field #7">Hành động</th>
-                                <th title="Field #7">Mô tả .</th>
+                                <th title="Field #7">Mô tả</th>
                             </tr>
                         </thead>
                         <tbody>
