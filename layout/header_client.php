@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,9 +17,7 @@
                     <img src="public/images/logo.png" class="w-full h-full" alt="">
                 </div>
                 <form class="flex">
-                    <input type="text" name="" id=""
-                        class="py-2 outline-none w-[340px]  pl-[10px] bg-[#E8E8E8] rounded-l-[5px]"
-                        placeholder="Tìm sản phẩm ở đây...">
+                    <input type="text" name="" id="" class="py-2 outline-none w-[340px]  pl-[10px] bg-[#E8E8E8] rounded-l-[5px]" placeholder="Tìm sản phẩm ở đây...">
                     <button class=" px-3 flex items-center  bg-[#E8E8E8] rounded-r-[5px]">
                         <img src="public/images/bx_search-alt-2.png" alt="">
                     </button>
@@ -46,8 +43,7 @@
                     <div class="w-[157px] h-[44px] border-[3px] bg-red rounded-[10px] items-center flex">
                         <img src="public/images/cart.png" alt="" class="pl-[5px]">
                         <span class="px-[10px] text-[15] text-[#414141] text-center">Giỏ hàng</span>
-                        <div
-                            class="bg-[#FFC107] w-[17px] h-[18px] text-center rounded-[3px] text-[13px] text-[#414141]">
+                        <div class="bg-[#FFC107] w-[17px] h-[18px] text-center rounded-[3px] text-[13px] text-[#414141]">
                             0</div>
                     </div>
                 </div>
@@ -55,12 +51,10 @@
             <nav class="menu w-full h-[65px] bg-[#198754] flex items-center justify-center ">
                 <ul class="flex justify-around gap-9">
                     <li class="text-[#ffffff]"><a href="http://localhost/nhom_2_du_an_1">Trang chủ</a></li>
-                    <li class="text-[#ffffff]"><a href="http://localhost/nhom_2_du_an_1/?action=login">Đăng nhập</a></li>
-                    <li class="text-[#ffffff]"><a href="http://localhost/nhom_2_du_an_1/?action=register">Đăng ký</a></li>
-                    <li class="text-[#ffffff]"><a href="http://localhost/nhom_2_du_an_1/?action=cart">Giỏ hàng</a></li>
-                    <li class="text-[#ffffff]"><a href="http://localhost/nhom_2_du_an_1/?action=account">Tài khoản</a></li>
+                    <li class="text-[#ffffff]"><a href="http://localhost/nhom_2_du_an_1/?mod=login">Đăng nhập</a></li>
+                    <li class="text-[#ffffff]"><a href="http://localhost/nhom_2_du_an_1/?mod=register">Đăng ký</a></li>
+                    <li class="text-[#ffffff]"><a href="http://localhost/nhom_2_du_an_1/?mod=cart">Giỏ hàng</a></li>
+                    <li class="text-[#ffffff]"><a href="http://localhost/nhom_2_du_an_1/?mod=account">Tài khoản</a></li>
                 </ul>
             </nav>
         </header>
-
-

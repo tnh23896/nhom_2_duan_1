@@ -7,6 +7,7 @@ function construct()
 
 function indexAction()
 {
-    $data['productions'] = get_list_productions();
+    $id = $_GET['id'];
+    $data['production'] = get_one_production($id);
     load_view('index', $data);
 }
