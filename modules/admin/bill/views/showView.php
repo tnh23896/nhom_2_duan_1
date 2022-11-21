@@ -1,4 +1,4 @@
-<?php get_header('', 'Bình luận') ?>
+<?php get_header('', 'Hóa Đơn chi tiết') ?>
 
     <!--begin::Subheader-->
     <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
@@ -6,7 +6,7 @@
             <!--begin::Info-->
             <div class="d-flex align-items-center flex-wrap mr-2">
                 <!--begin::Page Title-->
-                <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Quản lý bình luận</h5>
+                <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Quản lý Hóa Đơn chi tiết</h5>
                 <!--end::Page Title-->
             </div>
             <!--end::Info-->
@@ -22,8 +22,8 @@
             <div class="card card-custom">
                 <div class="card-header flex-wrap border-0 pt-6 pb-0">
                     <div class="card-title">
-                        <h3 class="card-label">Danh sách bình luận
-                            <span class="d-block text-muted pt-2 font-size-sm">Danh sách các bình luận có trên hệ thống</span>
+                        <h3 class="card-label">Danh sách Hóa Đơn chi tiết
+                            <span class="d-block text-muted pt-2 font-size-sm">Danh sách các Hóa Đơn có trên hệ thống</span>
                         </h3>
                     </div>
                 </div>
@@ -50,28 +50,31 @@
                     <table class="datatable datatable-bordered datatable-head-custom" id="kt_datatable">
                         <thead>
                             <tr>
-                                <th title="Field #1">ID bình luận</th>
-                                <th title="Field #2">Tên</th>
-                                <th title="Field #2">Hình ảnh</th>
-                                <th title="Field #2">Nội dung</th>
                                 <th title="Field #2">Tên sản phẩm</th>
-                                <th title="Field #5">Hành động</th>
+                                <th title="Field #2">Hỉnh ảnh</th>
+                                <th title="Field #2">Đơn giá</th>
+                                <th title="Field #2">Số lượng</th>
+                                <th title="Field #2">Tổng tiền</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($comments as $comment) : ?>
+                            <?php foreach ($details as $detail) : ?>
                                 <tr>
-                                    <td><?php echo ($comment['id']) ?></td>
-                                    <td><?php echo ($comment['full_name']) ?></td>
-                                    <td><img src="public/images/<?php echo ($comment['image']) ?>" alt="" class="w-25 rounded-full"></td>
-                                    <td><?php echo ($comment['description']) ?></td>
-                                    <td><?php echo ($comment['title']) ?></td>
-                                    <td><a href="?role=admin&mod=comment&action=show&id_comment=<?php echo $comment['id'] ?>">Xóa bình luận</a></td>
+                                    <td><?php echo ($detail['title']) ?></td>
+                                    <td><img src="public/images/<?php echo ($detail['images']) ?>" alt="" class="w-25"></td>
+                                    <td><?php echo ($detail['price']) ?></td>
+                                    <td><?php echo ($detail['quantity']) ?></td>
+                                    <td><?php echo ($detail['total']) ?></td>
+                                    <?php $total = $detail['price_total'] ?>
                                 </tr>
                             <?php endforeach; ?>
+                            <td>Tổng tiền tất cả sản phẩm : <?php echo $total ?></td>
                         </tbody>
                     </table>
                     <!--end: Datatable-->
+                    <div class="card-footer">
+                        <a href="?role=admin&mod=bill" class="btn btn-secondary ">Quay về</a>
+                    </div>
                 </div>
             </div>
             <!--end::Card-->
