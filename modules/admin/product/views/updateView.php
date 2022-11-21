@@ -70,16 +70,17 @@
                                     <?php endforeach ?>
                                 </select>
                             </div>
-                            </div>
-                        </div>
+                            </div>         
+                            </div>                                                                      
                         <div class="col col-3">
                             <div class="form-group">
                                 <div><label>Hình ảnh đại diện</label></div>
                                 <div class="image-input image-input-outline" id="kt_image_1">
-                                    <div class="image-input-wrapper" style="background-image: url(assets/media/users/100_1.jpg)"></div>
+                                    <div class="image-input-wrapper" style="background-image: url(public/images/<?= $product['images'] ?>)"></div>
                                     <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Thay đổi">
                                         <i class="fa fa-pen icon-sm text-muted"></i>
-                                        <input type="file" name="thumb" accept=".png, .jpg, .jpeg" />
+                                        <input type="hidden" value="<?= $product['images'] ?>" name="previmg">
+                                        <input  type="file" name="thumb" accept=".png, .jpg, .jpeg" />
                                         <input type="hidden" name="thumb_remove" />
                                     </label>
 
@@ -89,7 +90,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        </div>
                 </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary mr-2">Tạo mới</button>

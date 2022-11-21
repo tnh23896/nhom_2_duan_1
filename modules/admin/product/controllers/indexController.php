@@ -78,6 +78,10 @@ function updatePostAction()
     $brand_id = 1;
     $thumb = $_FILES['thumb'];
     $thumb_name = $_FILES['thumb']['name'];
+    $previmg_name = $_POST['previmg'];
+    if($thumb['size'] <=0){
+        $thumb_name = $previmg_name;
+    }
     if (empty($title)) {
         push_notification('errors', [
             'title' => 'Vui lòng nhập vào tiêu đề sản phẩm'
