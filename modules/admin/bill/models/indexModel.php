@@ -1,30 +1,32 @@
 <?php
-function get_list_categories() {
-    $result = db_fetch_array("SELECT * FROM `categories`");
+function get_list_brands() {
+    $result = db_fetch_array("SELECT * FROM `brands`");
     return $result;
 }
 
-function get_one_category($id) {
-    $result = db_fetch_row("SELECT * FROM `categories` WHERE `id` = '$id'");
+function get_one_brands($id) {
+    $result = db_fetch_row("SELECT * FROM `brands` WHERE `id` = '$id'");
     return $result;
 }
 
-function create_category($name) {
+function create_brands($name,$image) {
     $user = get_auth();
-    $id = db_insert('categories', [
+    $id = db_insert('brands', [
         'name' => $name,
+        'image' => $image,
     ]);
     return $id;
 }
 
-function update_category($id, $name) {
-    db_update('categories', [
+function update_brands($id, $name,$image) {
+    db_update('brands', [
         'name' => $name,
+        'image' => $image,
     ], "id = $id");
     return true;
 }
 
-function delete_category($id) {
-    db_delete('categories', "id = $id");
+function delete_brands($id) {
+    db_delete('brands', "id = $id");
     return true;
 }
