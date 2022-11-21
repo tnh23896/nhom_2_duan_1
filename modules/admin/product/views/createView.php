@@ -40,6 +40,14 @@
                                     <?php endforeach ?>
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <label>Loại sản phẩm</label>
+                                <select class="form-control select2" name="type_id">
+                                    <?php foreach ($types as $type) : ?>
+                                        <option value="<?php echo $type['id'] ?>"><?php echo $type['name'] ?></option>
+                                    <?php endforeach ?>
+                                </select>
+                            </div>
                             <div class="form-group mb-1">
                                 <label for="descriptionCategoryInput">Chi tiết sản phẩm</label>
                                 <textarea name="description" id="kt-ckeditor-1"></textarea>
@@ -61,11 +69,12 @@
                             </div>
                         </div>
                         <div class="col col-4 mt-3">
-                            <div class="form-group">
-                                <label>Trạng thái sản phẩm</label>
-                                <select class="form-control select2" name="status">
-                                    <option value="1">Nháp</option>
-                                    <option value="2">Công khai</option>
+                                <div class="form-group">
+                                <label>Hãng sản phẩm</label>
+                                <select class="form-control select2" name="brand_id">
+                                    <?php foreach ($brands as $brand) : ?>
+                                        <option value="<?php echo $brand['id'] ?>"><?php echo $brand['name'] ?></option>
+                                    <?php endforeach ?>
                                 </select>
                             </div>
                         </div>

@@ -1,4 +1,4 @@
-<?php get_header('', 'Loại sản phẩm') ?>
+<?php get_header('', 'Danh mục sản phẩm') ?>
 
     <!--begin::Subheader-->
     <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
@@ -6,7 +6,7 @@
             <!--begin::Info-->
             <div class="d-flex align-items-center flex-wrap mr-2">
                 <!--begin::Page Title-->
-                <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Quản lý loại sản phẩm</h5>
+                <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Quản lý danh mục sản phẩm</h5>
                 <!--end::Page Title-->
             </div>
             <!--end::Info-->
@@ -22,13 +22,13 @@
             <div class="card card-custom">
                 <div class="card-header flex-wrap border-0 pt-6 pb-0">
                     <div class="card-title">
-                        <h3 class="card-label">Danh sách loại sản phẩm
-                            <span class="d-block text-muted pt-2 font-size-sm">Danh sách các loại sản phẩm có trên hệ thống</span>
+                        <h3 class="card-label">Danh sách danh mục sản phẩm
+                            <span class="d-block text-muted pt-2 font-size-sm">Danh sách các danh mục sản phẩm có trên hệ thống</span>
                         </h3>
                     </div>
                     <div class="card-toolbar">
                         <!--begin::Button-->
-                        <a href="?role=admin&mod=type&action=create" class="btn btn-primary font-weight-bolder">
+                        <a href="?role=admin&mod=category&action=create" class="btn btn-primary font-weight-bolder">
                             <span class="svg-icon svg-icon-md">
                                 <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -39,7 +39,7 @@
                                     </g>
                                 </svg>
                                 <!--end::Svg Icon-->
-                            </span>Thêm mới loại</a>
+                            </span>Thêm mới danh mục</a>
                         <!--end::Button-->
                     </div>
                 </div>
@@ -66,23 +66,20 @@
                     <table class="datatable datatable-bordered datatable-head-custom" id="kt_datatable">
                         <thead>
                             <tr>
-                                <th title="Field #1">ID loại</th>
-                                <th title="Field #2">Tên loại</th>
-                                <th title="Field #3">Ngày tạo</th>
-                                <th title="Field #4">Người tạo</th>
+                                <th title="Field #1">ID Danh mục</th>
+                                <th title="Field #2">Tên danh mục</th>
                                 <th title="Field #5">Hành động</th>
                                 <th title="Field #5">Mô tả</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($types as $type) : ?>
+                            <?php foreach ($categories as $category) : ?>
                                 <tr>
-                                    <td><?php echo ($type['id']) ?></td>
-                                    <td><?php echo ($type['name']) ?></td>
-                                    <td><?php echo ($type['created_at']) ?></td>
+                                    <td><?php echo ($category['id']) ?></td>
+                                    <td><?php echo ($category['name']) ?></td>
                                     <td>
                                         <span style="overflow: visible; position: relative; width: 125px;">
-                                            <a href="?role=admin&mod=type&action=update&id_cate=<?php echo $type['id'] ?>" class="btn btn-sm btn-clean btn-icon mr-2" title="Edit details"> <span class="svg-icon svg-icon-md"> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <a href="?role=admin&mod=category&action=update&id_cate=<?php echo $category['id'] ?>" class="btn btn-sm btn-clean btn-icon mr-2" title="Edit details"> <span class="svg-icon svg-icon-md"> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                             <rect x="0" y="0" width="24" height="24"></rect>
                                                             <path d="M8,17.9148182 L8,5.96685884 C8,5.56391781 8.16211443,5.17792052 8.44982609,4.89581508 L10.965708,2.42895648 C11.5426798,1.86322723 12.4640974,1.85620921 13.0496196,2.41308426 L15.5337377,4.77566479 C15.8314604,5.0588212 16,5.45170806 16,5.86258077 L16,17.9148182 C16,18.7432453 15.3284271,19.4148182 14.5,19.4148182 L9.5,19.4148182 C8.67157288,19.4148182 8,18.7432453 8,17.9148182 Z" fill="#000000" fill-rule="nonzero" transform="translate(12.000000, 10.707409) rotate(-135.000000) translate(-12.000000, -10.707409) "></path>
@@ -91,7 +88,7 @@
                                                     </svg>
                                                 </span>
                                             </a>
-                                            <a href="?role=admin&mod=type&action=delete&id_cate=<?php echo $type['id'] ?>" onclick="return confirm('Bạn chắc chắn muốn xoá loại: <?php echo $type['name'] ?> không? Hành động sẽ xoá loại và toàn bộ sản phẩm có trong loại này.')" class="btn btn-sm btn-clean btn-icon" title="Delete"> <span class="svg-icon svg-icon-md"> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <a href="?role=admin&mod=category&action=delete&id_cate=<?php echo $category['id'] ?>" onclick="return confirm('Bạn chắc chắn muốn xoá danh mục: <?php echo $category['name'] ?> không? Hành động sẽ xoá danh mục và toàn bộ sản phẩm có trong danh mục này.')" class="btn btn-sm btn-clean btn-icon" title="Delete"> <span class="svg-icon svg-icon-md"> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                     <rect x="0" y="0" width="24" height="24"></rect>
                                                     <path d="M6,8 L6,20.5 C6,21.3284271 6.67157288,22 7.5,22 L16.5,22 C17.3284271,22 18,21.3284271 18,20.5 L18,8 L6,8 Z" fill="#000000" fill-rule="nonzero"></path>
@@ -100,6 +97,7 @@
                                             </svg> </span> </a>
                                         </span>
                                     </td>
+                                    <td><?php echo $category['description'] ?></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>

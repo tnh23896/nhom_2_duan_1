@@ -23,7 +23,7 @@
                 <h3 class="card-title">Form thông tin sản phẩm mới</h3>
             </div>
             <!--begin::Form-->
-            <form method="POST" action="">
+            <form method="POST" action="" enctype="multipart/form-data" >
                 <div class="card-body">
                     <div class="row">
                         <div class="col col-12">
@@ -48,7 +48,7 @@
                         <div class="col col-4 mt-3">
                             <div class="form-group">
                                 <label>Số lượng trong kho</label>
-                                <input type="number" name="count" class="form-control" placeholder="Nhập vào số lượng" value="<?php echo $product['count'] ?>" />
+                                <input type="number" name="count" class="form-control" placeholder="Nhập vào số lượng" value="<?php echo $product['quantity'] ?>" />
                             </div>
                         </div>
                         <div class="col col-4 mt-3">
@@ -61,12 +61,15 @@
                             </div>
                         </div>
                         <div class="col col-4 mt-3">
-                            <div class="form-group">
-                                <label>Trạng thái sản phẩm</label>
-                                <select class="form-control select2" name="status" value="<?php echo $product['status'] ?>">
-                                    <option value="1">Nháp</option>
-                                    <option value="2">Công khai</option>
+                        <div class="form-group">
+                                <label>Hãng sản phẩm</label>
+                                <select class="form-control select2" name="brand_id">
+                                    <option value="<?php echo $product['category_id'] ?>"><?php echo $product['name'] ?> </option>
+                                    <?php foreach ($categories as $category) : ?>
+                                        <option value="<?php echo $category['id'] ?>"><?php echo $category['name'] ?></option>
+                                    <?php endforeach ?>
                                 </select>
+                            </div>
                             </div>
                         </div>
                         <div class="col col-3">
@@ -74,7 +77,6 @@
                                 <div><label>Hình ảnh đại diện</label></div>
                                 <div class="image-input image-input-outline" id="kt_image_1">
                                     <div class="image-input-wrapper" style="background-image: url(assets/media/users/100_1.jpg)"></div>
-
                                     <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Thay đổi">
                                         <i class="fa fa-pen icon-sm text-muted"></i>
                                         <input type="file" name="thumb" accept=".png, .jpg, .jpeg" />

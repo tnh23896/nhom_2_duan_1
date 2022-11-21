@@ -67,10 +67,9 @@
                     <thead>
                         <tr>
                             <th title="Field #1">ID Sản phẩm</th>
-                            <th title="Field #2">Tiêu đề sản phẩm</th>
+                            <th title="Field #2">Tên sản phẩm</th>
                             <th title="Field #3">Tên danh mục</th>
                             <th title="Field #4">Hình ảnh</th>
-                            <th title="Field #5">Ngày tạo</th>
                             <th title="Field #6">Số lượng</th>
                             <th title="Field #7">Giá Tiền</th>
                             <th title="Field #8">Hành động</th>
@@ -83,9 +82,8 @@
                                 <td><?php echo ($product['id']) ?></td>
                                 <td><?php echo ($product['title']) ?></td>
                                 <td><?php echo ($product['name']) ?></td>
-                                <td><img src="public/images/<?php echo ($product['thumb']) ?>" width="100" alt=""></td>
-                                <td><?php echo ($product['created_at']) ?></td>
-                                <td><?php echo ($product['count']) ?></td>
+                                <td><img src="public/images/<?php echo ($product['images']) ?>" width="100" alt=""></td>
+                                <td><?php echo ($product['quantity']) ?></td>
                                 <td><?php echo ($product['price']) ?></td>
                                 <td>
                                     <span style="overflow: visible; position: relative; width: 125px;">
