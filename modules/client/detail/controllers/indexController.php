@@ -7,6 +7,7 @@ function construct()
 
 function indexAction()
 {
-    $data['products'] = get_list_products();
+    $id = $_GET['id'];
+    $data['product'] = get_one_product($id);
     load_view('index', $data);
 }
