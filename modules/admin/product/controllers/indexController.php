@@ -25,7 +25,8 @@ function createPostAction()
     $description = $_POST['description'];
     $count = $_POST['count'];
     $price = $_POST['price'];
-    $status = $_POST['status'];
+    $type_id = 1;
+    $brand_id = 1;
     $thumb = $_FILES['thumb'];
     $thumb_name = $_FILES['thumb']['name'];
 
@@ -34,7 +35,7 @@ function createPostAction()
         header('Location: ?role=admin&mod=product&action=create');
         die();
     }
-    create_product($title, $category_id, $description, $count, $price, $status, $thumb_name);
+    create_product($title, $category_id, $description, $count, $price, $thumb_name , $brand_id);
     move_uploaded_file($thumb['tmp_name'], 'public/images/' . $thumb_name);
     push_notification('success', ['Tạo mới sản phẩm thành công']);
     header('Location: ?role=admin&mod=product');
@@ -74,15 +75,20 @@ function updatePostAction()
     $description = $_POST['description'];
     $count = $_POST['count'];
     $price = $_POST['price'];
-    $status = $_POST['status'];
-    $thumb = $_FILES['thumb']['name'];
+    $brand_id = 1;
+    $thumb = $_FILES['thumb'];
+    $thumb_name = $_FILES['thumb']['name'];
+    $previmg_name = $_POST['previmg'];
+    if($thumb['size'] <=0){
+        $thumb_name = $previmg_name;
+    }
     if (empty($title)) {
         push_notification('errors', [
             'title' => 'Vui lòng nhập vào tiêu đề sản phẩm'
         ]);
         header('Location: ?role=admin&mod=product&action=update&id_prod=' . $id);
     }
-    update_product($id, $title, $category_id, $description, $count, $price, $status, $thumb);
+    update_product($id, $title, $category_id, $description, $count, $price, $thumb_name , $brand_id);
     move_uploaded_file($thumb['tmp_name'], 'public/images/' . $thumb['name']);
     push_notification('success', ['Chỉnh sửa danh mục sản phẩm thành công']);
     header('Location: ?role=admin&mod=product');

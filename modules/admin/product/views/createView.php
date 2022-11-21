@@ -1,4 +1,5 @@
-<?php get_header('', 'Chỉnh sửa sản phẩm') ?>
+<?php get_header('', 'Tạo mới sản phẩm') ?>
+
 <!--begin::Subheader-->
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
@@ -23,49 +24,57 @@
                 <h3 class="card-title">Form thông tin sản phẩm mới</h3>
             </div>
             <!--begin::Form-->
-            <form method="POST" action="">
+            <form method="POST" action="" enctype="multipart/form-data">
                 <div class="card-body">
                     <div class="row">
                         <div class="col col-12">
                             <div class="form-group">
                                 <label>Tiêu đề sản phẩm</label>
-                                <input type="text" name="title" class="form-control" placeholder="Nhập vào tiêu đề sản phẩm" value="<?php echo $product['title'] ?>" />
+                                <input type="text" name="title" class="form-control" placeholder="Nhập vào tiêu đề sản phẩm" />
                             </div>
                             <div class="form-group">
                                 <label>Danh mục sản phẩm</label>
                                 <select class="form-control select2" name="category_id">
-                                    <option value="<?php echo $product['category_id'] ?>"><?php echo $product['name'] ?> </option>
                                     <?php foreach ($categories as $category) : ?>
                                         <option value="<?php echo $category['id'] ?>"><?php echo $category['name'] ?></option>
                                     <?php endforeach ?>
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <label>Loại sản phẩm</label>
+                                <select class="form-control select2" name="type_id">
+                                    <?php foreach ($types as $type) : ?>
+                                        <option value="<?php echo $type['id'] ?>"><?php echo $type['name'] ?></option>
+                                    <?php endforeach ?>
+                                </select>
+                            </div>
                             <div class="form-group mb-1">
                                 <label for="descriptionCategoryInput">Chi tiết sản phẩm</label>
-                                <textarea name="description" id="kt-ckeditor-1"> <?php echo $product['description'] ?></textarea>
+                                <textarea name="description" id="kt-ckeditor-1"></textarea>
                             </div>
                         </div>
                         <div class="col col-4 mt-3">
                             <div class="form-group">
                                 <label>Số lượng trong kho</label>
-                                <input type="number" name="count" class="form-control" placeholder="Nhập vào số lượng" value="<?php echo $product['count'] ?>" />
+                                <input type="number" name="count" class="form-control" placeholder="Nhập vào số lượng" />
                             </div>
                         </div>
                         <div class="col col-4 mt-3">
                             <div class="form-group">
                                 <label>Giá cho mỗi sản phẩm</label>
                                 <div class="input-group">
-                                    <input type="text" name="price" class="form-control" placeholder="Giá cho mỗi sản phẩm" aria-describedby="basic-addon2" value="<?php echo $product['price'] ?>" />
+                                    <input type="text" name="price" class="form-control" placeholder="Giá cho mỗi sản phẩm" aria-describedby="basic-addon2" />
                                     <div class="input-group-append"><span class="input-group-text">VND</span></div>
                                 </div>
                             </div>
                         </div>
                         <div class="col col-4 mt-3">
-                            <div class="form-group">
-                                <label>Trạng thái sản phẩm</label>
-                                <select class="form-control select2" name="status" value="<?php echo $product['status'] ?>">
-                                    <option value="1">Nháp</option>
-                                    <option value="2">Công khai</option>
+                                <div class="form-group">
+                                <label>Hãng sản phẩm</label>
+                                <select class="form-control select2" name="brand_id">
+                                    <?php foreach ($brands as $brand) : ?>
+                                        <option value="<?php echo $brand['id'] ?>"><?php echo $brand['name'] ?></option>
+                                    <?php endforeach ?>
                                 </select>
                             </div>
                         </div>

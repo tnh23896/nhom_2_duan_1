@@ -11,33 +11,31 @@ function get_one_product($id)
     return $result;
 }
 
-function create_product($title, $category_id, $description, $count, $price, $status, $thumb)
+function create_product($title, $category_id, $description, $count, $price, $thumb , $brand_id )
 {
     $user = get_auth();
     $id = db_insert('products', [
         'title' => $title,
         'category_id' => $category_id,
         'description' => $description,
-        'count' => $count,
-        'status' => $status,
-        'thumb' =>  $thumb,
-        'create_id' => $user['id'],
-        'created_at' => date('Y-m-d H:i:s')
+        'quantity' => $count,
+        'images' =>  $thumb,
+        'price' => $price,
+        'brand_id' => $brand_id,
     ]);
     return $id;
 }
 
-function update_product($id, $title, $category_id, $description, $count, $price, $status, $thumb)
+function update_product($id, $title, $category_id, $description, $count, $price, $thumb , $brand_id)
 {
     db_update('products', [
         'title' => $title,
         'category_id' => $category_id,
         'description' => $description,
-        'count' => $count,
+        'quantity' => $count,
+        'images' =>  $thumb,
         'price' => $price,
-        'status' => $status,
-        'thumb' =>  $thumb,
-        'created_at' => date('Y-m-d H:i:s')
+        'brand_id' => $brand_id,
     ], "id = $id");
     return true;
 }
@@ -53,3 +51,4 @@ function get_list_categories()
     $result = db_fetch_array("SELECT * FROM `categories`");
     return $result;
 }
+
