@@ -1,20 +1,20 @@
 <?php
-function get_list_productions()
+function get_list_products()
 {
-    $result = db_fetch_array("SELECT p.* ,c.name FROM productions p JOIN categories c ON p.category_id = c.id");
+    $result = db_fetch_array("SELECT p.* ,c.name FROM products p JOIN categories c ON p.category_id = c.id");
     return $result;
 }
 
-function get_one_production($id)
+function get_one_product($id)
 {
-    $result = db_fetch_row("SELECT p.* ,c.name FROM productions p JOIN categories c ON p.category_id = c.id where p.id = $id");
+    $result = db_fetch_row("SELECT p.* ,c.name FROM products p JOIN categories c ON p.category_id = c.id where p.id = $id");
     return $result;
 }
 
-function create_production($title, $category_id, $description, $count, $price, $status, $thumb)
+function create_product($title, $category_id, $description, $count, $price, $status, $thumb)
 {
     $user = get_auth();
-    $id = db_insert('productions', [
+    $id = db_insert('products', [
         'title' => $title,
         'category_id' => $category_id,
         'description' => $description,
@@ -27,9 +27,9 @@ function create_production($title, $category_id, $description, $count, $price, $
     return $id;
 }
 
-function update_production($id, $title, $category_id, $description, $count, $price, $status, $thumb)
+function update_product($id, $title, $category_id, $description, $count, $price, $status, $thumb)
 {
-    db_update('productions', [
+    db_update('products', [
         'title' => $title,
         'category_id' => $category_id,
         'description' => $description,
@@ -42,9 +42,9 @@ function update_production($id, $title, $category_id, $description, $count, $pri
     return true;
 }
 
-function delete_production($id)
+function delete_product($id)
 {
-    db_delete('productions', "id = $id");
+    db_delete('products', "id = $id");
     return true;
 }
 

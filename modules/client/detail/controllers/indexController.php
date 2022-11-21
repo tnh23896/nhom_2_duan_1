@@ -8,6 +8,6 @@ function construct()
 function indexAction()
 {
     $id = $_GET['id'];
-    $data['production'] = get_one_production($id);
+    $data['product'] = get_one_product($id);
     load_view('index', $data);
 }

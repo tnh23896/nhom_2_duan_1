@@ -36,26 +36,34 @@
         </div>
     </section>
 
-    <section class="bg-[#F9F9F9] px-[10px] pb-[31px] mb-[31px]">
+    <section class="bg-[#F9F9F9] pb-[31px] mb-[31px]">
         <h3 class="font-['Yeseva One'] text-[30px] py-[27px]">Sản phẩm</h3>
-        <div class="grid grid-cols-4 gap-4">
-            <?php foreach ($productions as $product) : ?>
-                <a href="?mod=detail&id=<?= $product['id'] ?>" class="font-bold block">
-                    <img src="public/images/<?= $product['thumb'] ?>" class="w-full h-[300px]" alt="">
-                    <p class="text-[#004031] text-lg"><?= $product['title'] ?></p>
-                    <p class="text-[#F3283D]"><?= $product['price'] ?></p>
+        <div class="grid grid-cols-5 gap-4">
+            <?php foreach ($products as $product) : ?>
+
+                <a href="?mod=detail&id=<?= $product['id'] ?>" class="p-2.5  text-xs sm:text-sm bg-white shadow-lg">
+                    <img class="w-full transition-transform  hover:-translate-y-2 max-h-36 object-cover min-h-[100px]" src="public/images/<?= $product['images'] ?>" alt="">
+                    <h3 class="mt-2.5 text-xl">
+                        <?= $product['name'] ?>
+                    </h3>
+                    <div>
+                    </div>
+                    <div class="mt-2.5">
+                        <div>Giá <?= $product['price'] ?></div>
+                    </div>
+                    <div class="mt-2.5">
+                        <div>Bán được <?= $product['sold'] ?></div>
+                    </div>
+
+                    <div class="mt-2.5 break-words">
+                        <?= $product['description'] ?>
+                    </div>
                 </a>
             <?php endforeach ?>
         </div>
-        <!-- <div class="bg-[#FFFFFF] border-[1px] border-solid border-[#000000] pb-[56px]">
-            <div class="mx-[36px] flex space-x-[50px] mt-[39px]">
-                <a href="detail.html" class="text-[20px] font-bold">
-                    <img src="public/images/sp.png" alt="">
-                    <p class="text-[#004031] my-[10px]">Sữa bột XO số 2,3 dành cho bé tăng cân</p>
-                    <p class="text-[#F3283D]">Giá: 500.000đ</p>
-                </a>
-            </div>
-        </div> -->
+
+
+
     </section>
 </main>
 <?php get_footer('') ?>

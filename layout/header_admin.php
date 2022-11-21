@@ -95,7 +95,7 @@
 							<h4 class="menu-text">Quản lý</h4>
 							<i class="menu-icon ki ki-bold-more-hor icon-md"></i>
 						</li>
-						
+
 						<li class="menu-item" aria-haspopup="true">
 							<a href="?role=admin&mod=category" class="menu-link">
 								<span class="svg-icon menu-icon">
@@ -112,9 +112,9 @@
 								<span class="menu-text">Danh mục sản phẩm</span>
 							</a>
 						</li>
-						
+
 						<li class="menu-item" aria-haspopup="true">
-							<a href="?role=admin&mod=production" class="menu-link">
+							<a href="?role=admin&mod=product" class="menu-link">
 								<span class="svg-icon menu-icon">
 									<!--begin::Svg Icon | path:assets/media/svg/icons/Layout/Layout-left-panel-2.svg-->
 									<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -188,10 +188,10 @@
 			<!--end::Header-->
 			<!--begin::Content-->
 			<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-				<?php foreach ($notifications as $notification): ?>
-				<div class="container">
-					<?php foreach ($notification['msgs'] as $msg): ?>
-					<div class="alert alert-<?php echo $notification['type'] ?>" role="alert"><?php echo $msg ?></div>
-					<?php endforeach; ?>
-				</div>
+				<?php foreach ($notifications as $notification) : ?>
+					<div class="container">
+						<?php foreach ($notification['msgs'] as $msg) : ?>
+							<div class="alert alert-<?php echo $notification['type'] ?>" role="alert"><?php echo $msg ?></div>
+						<?php endforeach; ?>
+					</div>
 				<?php endforeach; ?>

@@ -4,21 +4,19 @@
         <img src="public/images/products.png" alt="" class="w-[500px] py-[20px] mx-[56px]">
         <div class="flex">
             <div class="mt-[15px] ">
-                <h2 class="text-[28px] mb-[26px]"><?= $production['title'] ?></h2>
+                <h2 class="text-[28px] mb-[26px]"><?= $product['name'] ?></h2>
                 <div class="text-[16px] mb-[29px] flex">
                     <p>Thương hiệu: Khác</p>
                     <p class="mx-[15px]">|</p>
-                    <p>Tình trạng: Còn hàng</p>
+                    <p>Tình trạng: <?= $product['quantity'] == 0 ? "hết hàng" : "còn hàng" ?></p>
                 </div>
                 <div>
                     <p class="text-[15px] mb-[10px]">Loại:</p>
                     <div class="flex space-x-[15px] mb-[28px]">
                         <p class="border-2 border-solid border-[#666666] w-[72px] h-[26px] text-[10px] text-center pt-[3px]">
                             100g</p>
-                        <p class="border-2 border-solid border-[#666666] w-[72px] h-[26px] text-[10px] text-center pt-[3px]">
-                            300g</p>
-                        <p class="border-2 border-solid border-[#666666] w-[72px] h-[26px] text-[10px] text-center pt-[3px]">
-                            500g</p>
+
+
                     </div>
                 </div>
                 <div class="bg-[#FAFAFA] w-[24px] h-[38pr] rounded-[3px] mb-[16px]">
