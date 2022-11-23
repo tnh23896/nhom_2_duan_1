@@ -42,7 +42,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Loại sản phẩm</label>
-                                <select class="form-control select2" name="type_id">
+                                <select multiple class="form-control select2" name="type_id[]">
                                     <?php foreach ($types as $type) : ?>
                                         <option value="<?php echo $type['id'] ?>"><?php echo $type['name'] ?></option>
                                     <?php endforeach ?>

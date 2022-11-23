@@ -1,7 +1,7 @@
 <?php
 function get_list_products()
 {
-    $result = db_fetch_array("SELECT p.* ,c.name FROM products p JOIN categories c ON p.category_id = c.id");
+    $result = db_fetch_array("SELECT p.* ,c.name FROM products p JOIN categories c ON p.category_id = c.id ");
     return $result;
 }
 
@@ -51,4 +51,21 @@ function get_list_categories()
     $result = db_fetch_array("SELECT * FROM `categories`");
     return $result;
 }
+function get_list_types()
+{
+    $result = db_fetch_array("SELECT * FROM `types`");
+    return $result;
+}
+function get_list_brands()
+{
+    $result = db_fetch_array("SELECT * FROM `brands`");
+    return $result;
+}
+function create_type($title, $category_id, $description, $count, $price, $thumb , $brand_id )
+{
+    $user = get_auth();
+    $id = db_insert('products', [
 
+    ]);
+    return $id;
+}
