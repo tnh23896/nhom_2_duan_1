@@ -51,10 +51,6 @@
                     <div class="mt-2.5">
                         <div>Giá <?= $product['price'] ?></div>
                     </div>
-                    <div class="mt-2.5">
-                        <div>Bán được <?= $product['sold'] ?></div>
-                    </div>
-
                     <div class="mt-2.5 break-words">
                         <?= $product['description'] ?>
                     </div>
