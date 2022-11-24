@@ -30,22 +30,23 @@
                         <div class="col col-12">
                             <div class="form-group">
                                 <label>Tiêu đề sản phẩm</label>
-                                <input type="text" name="title" class="form-control" placeholder="Nhập vào tiêu đề sản phẩm"  value="<?php echo $product['title'] ?>"/>
+                                <input type="text" name="title" class="form-control" placeholder="Nhập vào tiêu đề sản phẩm" value="<?php echo $product['title'] ?>" />
                             </div>
                             <div class="form-group">
                                 <label>Danh mục sản phẩm</label>
                                 <select class="form-control select2" name="category_id">
-                                    <option value="<?php echo $product['category_id'] ?>"><?php echo $product['name'] ?> </option>
                                     <?php foreach ($categories as $category) : ?>
-                                        <option value="<?php echo $category['id'] ?>"><?php echo $category['name'] ?></option>
+                                        <option <?php echo $category['id'] == $product['category_id'] ? 'selected' : '' ?> value="<?php echo $category['id'] ?>"><?php echo $category['name'] ?></option>
                                     <?php endforeach ?>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Loại sản phẩm</label>
-                                <select class="form-control select2" name="type_id">
+                                <select multiple class="form-control select2" name="type_id[]">
                                     <?php foreach ($types as $type) : ?>
-                                        <option value="<?php echo $type['id'] ?>"><?php echo $type['name'] ?></option>
+                                        <option <?php foreach ($list_types as $list_type) {
+                                                    echo $list_type['id_type'] == $type['id'] ? "selected" : "";
+                                                }  ?> value="<?php echo $type['id'] ?>"><?php echo $type['name'] ?></option>
                                     <?php endforeach ?>
                                 </select>
                             </div>
@@ -70,12 +71,11 @@
                             </div>
                         </div>
                         <div class="col col-4 mt-3">
-                                <div class="form-group">
+                            <div class="form-group">
                                 <label>Hãng sản phẩm</label>
                                 <select class="form-control select2" name="brand_id">
-                                    <option value="<?php echo $product['brand_id'] ?>"><?php echo $product['name'] ?> </option>
                                     <?php foreach ($brands as $brand) : ?>
-                                        <option value="<?php echo $brand['id'] ?>"><?php echo $brand['name'] ?></option>
+                                        <option <?php echo $brand['id'] == $product['brand_id'] ? 'selected' : '' ?> value="<?php echo $brand['id'] ?>"><?php echo $brand['name'] ?></option>
                                     <?php endforeach ?>
                                 </select>
                             </div>
@@ -84,7 +84,7 @@
                             <div class="form-group">
                                 <div><label>Hình ảnh đại diện</label></div>
                                 <div class="image-input image-input-outline" id="kt_image_1">
-                                <div class="image-input-wrapper" style="background-image: url(public/images/<?= $product['images'] ?>)"></div>
+                                    <div class="image-input-wrapper" style="background-image: url(public/images/<?= $product['images'] ?>)"></div>
                                     <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Thay đổi">
                                         <i class="fa fa-pen icon-sm text-muted"></i>
                                         <input type="hidden" value="<?= $product['images'] ?>" name="previmg">
