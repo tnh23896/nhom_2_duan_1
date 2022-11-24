@@ -69,7 +69,6 @@
                                 <th title="Field #1">ID Danh mục</th>
                                 <th title="Field #2">Tên danh mục</th>
                                 <th title="Field #5">Hành động</th>
-                                <th title="Field #5">Mô tả</th>
                             </tr>
                         </thead>
                         <tbody>

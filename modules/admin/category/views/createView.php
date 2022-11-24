@@ -31,7 +31,6 @@
                             <input type="text" name="name" class="form-control" placeholder="Nhập vào tên danh mục" />
                             <!-- <span class="form-text text-muted">We'll never share your email with anyone else.</span> -->
                         </div>
-                       
                     </div>
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary mr-2">Tạo mới</button>
