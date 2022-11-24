@@ -11,7 +11,7 @@ function get_one_product($id)
     return $result;
 }
 
-function create_product($title, $category_id, $description, $count, $price, $thumb , $brand_id )
+function create_product($title, $category_id, $description, $count, $price, $thumb, $brand_id)
 {
     $user = get_auth();
     $id = db_insert('products', [
@@ -26,7 +26,7 @@ function create_product($title, $category_id, $description, $count, $price, $thu
     return $id;
 }
 
-function update_product($id, $title, $category_id, $description, $count, $price, $thumb , $brand_id)
+function update_product($id, $title, $category_id, $description, $count, $price, $thumb, $brand_id)
 {
     db_update('products', [
         'title' => $title,
@@ -58,7 +58,7 @@ function get_list_types()
 }
 function get_one_types($id)
 {
-    $result = db_fetch_row("SELECT * FROM type_products  where id_products = $id ");
+    $result = db_fetch_array("SELECT * FROM type_products  where id_products = $id");
     return $result;
 }
 function get_list_brands()
@@ -66,7 +66,7 @@ function get_list_brands()
     $result = db_fetch_array("SELECT * FROM `brands`");
     return $result;
 }
-function create_type($type_id,$prod_id)
+function create_type($type_id, $prod_id)
 {
     $id = db_insert('type_products', [
         'id_type' => $type_id,
@@ -74,7 +74,7 @@ function create_type($type_id,$prod_id)
     ]);
     return $id;
 }
-function update_type($id,$type_id,$prod_id)
+function update_type($id, $type_id, $prod_id)
 {
     db_update('type_products', [
         'id_type' => $type_id,
