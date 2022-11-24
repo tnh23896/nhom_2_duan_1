@@ -35,17 +35,16 @@
                             <div class="form-group">
                                 <label>Danh mục sản phẩm</label>
                                 <select class="form-control select2" name="category_id">
-                                    <option value="<?php echo $product['category_id'] ?>"><?php echo $product['name'] ?> </option>
                                     <?php foreach ($categories as $category) : ?>
-                                        <option value="<?php echo $category['id'] ?>"><?php echo $category['name'] ?></option>
+                                        <option <?php echo $category['id'] == $product['category_id']? 'selected': '' ?> value="<?php echo $category['id'] ?>"><?php echo $category['name'] ?></option>
                                     <?php endforeach ?>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Loại sản phẩm</label>
-                                <select class="form-control select2" name="type_id">
+                                <select multiple class="form-control select2" name="type_id[]">
                                     <?php foreach ($types as $type) : ?>
-                                        <option value="<?php echo $type['id'] ?>"><?php echo $type['name'] ?></option>
+                                        <option  value="<?php echo $type['id'] ?>"><?php echo $type['name'] ?></option>
                                     <?php endforeach ?>
                                 </select>
                             </div>
@@ -73,9 +72,8 @@
                                 <div class="form-group">
                                 <label>Hãng sản phẩm</label>
                                 <select class="form-control select2" name="brand_id">
-                                    <option value="<?php echo $product['brand_id'] ?>"><?php echo $product['name'] ?> </option>
                                     <?php foreach ($brands as $brand) : ?>
-                                        <option value="<?php echo $brand['id'] ?>"><?php echo $brand['name'] ?></option>
+                                        <option <?php echo $brand['id'] == $product['brand_id']? 'selected': '' ?> value="<?php echo $brand['id'] ?>"><?php echo $brand['name'] ?></option>
                                     <?php endforeach ?>
                                 </select>
                             </div>

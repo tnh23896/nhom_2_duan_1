@@ -37,7 +37,9 @@ function createPostAction()
         die();
     }
     $create_product = create_product($title, $category_id, $description, $count, $price, $thumb_name , $brand_id);
-    // foreach ($type_id ){}
+    foreach ($type_id as $types_id){
+        create_type($types_id,$create_product);
+    }
     move_uploaded_file($thumb['tmp_name'], 'public/images/' . $thumb_name);
     push_notification('success', ['Tạo mới sản phẩm thành công']);
     header('Location: ?role=admin&mod=product');
@@ -56,9 +58,10 @@ function updateAction()
     $id = $_GET['id_prod'];
     $prod = get_one_product($id);
     $data['categories'] = get_list_categories();
-    $data['types'] = get_list_types();
+    $data['types'] = get_one_types($id);
     $data['brands'] = get_list_brands();
     $data['product'] = $prod;
+    $data['list_types'] = get_one_types($id);
     if ($prod) {
         load_view('update', $data);
     } else {
@@ -68,8 +71,8 @@ function updateAction()
 
 function updatePostAction()
 {
-    $id = $_GET['id_prod'];
-    $prod = get_one_product($id);
+    $id_pro = $_GET['id_prod'];
+    $prod = get_one_product($id_pro);
     if (!$prod) {
         header('Location: ?role=admin&mod=product');
         die();
@@ -91,10 +94,9 @@ function updatePostAction()
         push_notification('errors', [
             'title' => 'Vui lòng nhập vào tiêu đề sản phẩm'
         ]);
-        header('Location: ?role=admin&mod=product&action=update&id_prod=' . $id);
+        header('Location: ?role=admin&mod=product&action=update&id_prod=' . $id_pro);
     }
     update_product($id, $title, $category_id, $description, $count, $price, $thumb_name , $brand_id);
-
     move_uploaded_file($thumb['tmp_name'], 'public/images/' . $thumb['name']);
     push_notification('success', ['Chỉnh sửa danh mục sản phẩm thành công']);
     header('Location: ?role=admin&mod=product');
