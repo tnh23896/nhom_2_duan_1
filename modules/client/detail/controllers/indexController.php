@@ -9,5 +9,7 @@ function indexAction()
 {
     $id = $_GET['id'];
     $data['product'] = get_one_product($id);
+    $data['types'] = get_types_by_product($id);
+    $data['comments'] = get_list_comments_by_product_id($id);
     load_view('index', $data);
 }

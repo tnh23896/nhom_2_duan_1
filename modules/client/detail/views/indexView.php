@@ -6,27 +6,31 @@
             <div class="mt-[15px] ">
                 <h2 class="text-[28px] mb-[26px]"><?= $product['name'] ?></h2>
                 <div class="text-[16px] mb-[29px] flex">
-                    <p>Thương hiệu: Khác</p>
+                    <p>Thương hiệu: <?= $product['b_name'] ?></p>
                     <p class="mx-[15px]">|</p>
                     <p>Tình trạng: <?= $product['quantity'] == 0 ? "hết hàng" : "còn hàng" ?></p>
                 </div>
                 <div>
                     <p class="text-[15px] mb-[10px]">Loại:</p>
                     <div class="flex space-x-[15px] mb-[28px]">
-                        <p class="border-2 border-solid border-[#666666] w-[72px] h-[26px] text-[10px] text-center pt-[3px]">
-                            100g</p>
+                        <?php foreach ($types as $type) : ?>
 
+                            <input type="radio" name="type_id" value="<?= $type['id_type'] ?>" id="">
+                            <p class="border-2 border-solid border-[#666666] w-[72px] h-[26px] text-[10px] text-center pt-[3px]">
+                                <?= $type['name'] ?>
+                            </p>
+                        <?php endforeach ?>
 
                     </div>
                 </div>
                 <div class="bg-[#FAFAFA] w-[24px] h-[38pr] rounded-[3px] mb-[16px]">
-                    <p class="text-[#F3283D] text-[25px] ml-[12px]">500.000₫</p>
+                    <p class="text-[#F3283D] text-[25px] ml-[12px]"><?= $product['price'] ?>đ</p>
                 </div>
                 <p class="text-[15px] mb-[12px]">Số lượng:</p>
                 <div class="flex mb-[41px]">
-                    <button type="button" onClick='decreaseCount(event, this)' class="rounded-l-lg border-[2px] border-solid border-black w-[23px] h-[33px]"><span class="down">-</span></button>
-                    <input class="border-[2px] border-solid border-black text-center w-[80px]" type="text" value="1" readonly="true">
-                    <button type="button" onClick='increaseCount(event, this)' class="rounded-r-lg border-[2px] border-solid border-black w-[23px]"><span class="up">+</span></button>
+                    <button type="button" onClick='decreaseCount(event, this)' class="rounded-l-lg outline-none border-solid border-black w-[23px] h-[33px]"><span class="down">-</span></button>
+                    <input class="outline-none border-solid border-black text-center w-[80px]" type="text" value="1">
+                    <button type="button" onClick='increaseCount(event, this)' class="rounded-r-lg outline-none border-solid border-black w-[23px]"><span class="up">+</span></button>
                 </div>
                 <div class="flex">
                     <button class="font-bold text-[15px] bg-[#FF5722] text-white w-[174px] h-[56px] text-center rounded-[7px] mr-[15px]">MUA
@@ -59,84 +63,19 @@
             </div>
         </div>
     </section>
-    <section class=" bg-white rounded-[30px] mb-[65px] ['Roboto Serif']">
+    <section class=" bg-white rounded-[30px] pb-3 mb-[65px] ['Roboto Serif']">
         <div class="ml-[26px] pt-[28px]">
             <h2 class="text-[30px] mb-[15px]">MÔ TẢ SẢN PHẨM </h2>
-            <p>Sữa Meiji số 9 800g phù hợp cho trẻ từ 1 - 3 tuổi, không chỉ chứa các chất dinh dưỡng cơ bản như
-                protein, chất béo, carbohydrat mà còn có các vitamin và khoáng chất rất khó có được từ sữa bò và
-                thức ăn dạng rắn. Sữa bột cho bé Meiji còn bổ sung cả axit docosahexaenoic (DHA), các nucleotides và
-                đặc biệt là hệ chất xơ GOS hỗ trợ tiêu hóa làm nên đặc tính mát của sữa giúp thúc đẩy sự phát triển
-                toàn diện cả về thể chất lẫn não bộ của trẻ trong suốt giai đoạn thơ ấu. Sản phẩm được dùng bổ sung
-                cùng các bữa ăn hàng ngày của bé, đem đến nguồn năng lượng dồi dào cho bé tiếp tục các hoạt động vui
-                chơi và khám phá. </p>
-            <img src="img/anh2.png" alt="" class="ml-[472px] my-[43px]">
-        </div>
-        <div class="ml-[26px]">
-            <h2 class=" text-[30px] mb-[20px]">ĐẶC ĐIỂM NỔI BẬT CỦA SẢN PHẨM</h2>
-            <p class="leading-[23px] pb-[30px]">
-                Cung cấp nguồn dinh dưỡng và năng lượng <br>
-                <br>
-                Sữa Meiji số 9 cung cấp trên 70% nhu cầu vitamin và chất khoáng cho trẻ 1 - 3 tuổi/ngày theo khuyến
-                nghị của FAO/WHO mang đến nguồn năng lượng và hệ dinh dưỡng cân bằng cho bé, tăng cường sức đề kháng
-                để đảm bảo cho các hoạt động vui chơi trong ngày và một cơ thể khỏe mạnh.
-                <br> <br>
-                - Cung cấp chất lượng Protein tốt, bao gồm đạm Whey dễ tiêu hóa và hấp thu, kết hợp cùng nhiều dưỡng
-                chất đảm bảo nguồn năng lượng mỗi ngày.
-                <br> <br>
-                - Bổ sung lactose là thành phần carbonhydrat chính trong sữa Meiji, mang đến nguồn năng lượng cho
-                trẻ nhỏ, đồng thời tạo vị ngọt nhẹ cho sữa.
-                <br> <br>
-                - Bổ sung Nucleotides: cung cấp 6 mg của 5 loại Nucleotides ( axit adenylic, axit cytidylic, axit
-                guanylic, axit inosinic, axit uridylic ) giúp cơ thể tạo kháng thể.
-                <br> <br>
-                - Hơn 10 loại vitamin (vitamin A, C, D, K, E, các vitamin nhóm B) có trong sữa Meiji là các loại
-                vitamin cần thiết đối với trẻ nhỏ không chỉ mang đến hệ dinh dưỡng cân bằng mà còn nâng cao đề kháng
-                cho một cơ thể khỏe mạnh để chống chọi với các loại bệnh thường gặp.
-                <br> <br>
-                Hỗ trợ phát triển não bộ
-                <br> <br>
-                Sữa Meiji số 9 đặc biệt bổ sung DHA, các vi chất như sắt, kẽm, acid Follic và hệ cân bằng Omega 3
-                (axit-linolenic), Omega 6 (axit linoleic) tốt cho sự phát triển não bộ của bé trong giai đoạn từ 1
-                đến 3 tuổi - giai đoạn bé bắt đầu học hỏi, khám phá và tiếp thu những điều xung quanh.
-                <br> <br>
-                Thúc đẩy tăng trưởng chiều cao
-                <br> <br>
-                Lượng Canxi gấp đôi so với Meiji số 0 kết hợp cùng tỷ lệ Canxi/Photpho là 2,0 và Canxi/Magie trong
-                sữa Meiji là 7,6 theo đúng chuẩn FAO/WHO, đồng thời lượng vitamin D trong sữa cũng sẽ giúp bé hấp
-                thu Canxi một cách tốt hơn, do đó, với việc sử dụng Meiji mỗi ngày, bé sẽ được hỗ trợ để tăng cường
-                chiều cao cũng như sự chắc khỏe của răng.
-                <br> <br>
-                Giúp hệ tiêu hóa khỏe mạnh
-                <br> <br>
-                FOS (Fructo-oligosaccha ride) có trong sữa Meiji là chất xơ hòa tan giúp trẻ hấp thu dinh dưỡng một
-                cách tối đa và tự nhiên nhất, đồng thời cho một hệ tiêu hóa khỏe mạnh khiến trẻ ăn ngon miệng hơn,
-                nhanh chóng tăng cân.
-                Hướng dẫn sử dụng sản phẩm
-                Hướng dẫn pha sữa
-                <br> <br>
-                - Định lượng chính xác lượng bột sữa theo yêu cầu bằng cách sử dụng thìa đi kèm và đong sữa vào vật
-                chứa sạch (bình hoặc cốc).
-                <br> <br>
-                - Đổ nước sôi để nguội đến khoảng 50 độ C vào bình với lượng bằng 2/3 chỉ định, chú ý để không bị
-                bỏng và lắc đều cho đến khi bột sữa tan hoàn toàn.
-                <br> <br>
-                - Thêm nước sôi vừa đủ lượng nước chỉ định, khuấy đều. Khi cho trẻ dùng, hãy đảm bảo nhiệt độ pha
-                gần bằng nhiệt độ cơ thể.
-                <br> <br>
-                Định lượng sử dụng
-                <br> <br>
-                - Sử dụng muỗng chuyên dụng có trong hộp để đong chính xác lượng sữa.
-                <br> <br>
-                - 1 muỗng chuyên dụng gạt ngang đong được khoảng 5,6g sữa, pha cùng với 40ml nước.
-            </p>
+            <p><?= $product['description'] ?></p>
 
         </div>
+
     </section>
 
     <section class="bg-white rounded-[30px]">
         <h2 class="text-[30px] pt-[40px] ml-[26px] mb-[30px]">Viết Đánh Giá</h2>
         <div class="ml-[67px] flex mb-[37px]">
-            <img src="img/avt.png" alt="" class="mr-[27px]">
+            <img src="public/images/<?= $product['image'] ?>" alt="" class="">
             <div class="text-[16px]">
                 <p class="text-[#FF0000]">Tên</p>
                 <p>Comment</p>
@@ -182,4 +121,23 @@
 
     </section>
 </main>
+<script type="text/javascript">
+    function increaseCount(a, b) {
+        var input = b.previousElementSibling;
+        var value = parseInt(input.value, 10);
+        value = isNaN(value) ? 0 : value;
+        value++;
+        input.value = value;
+    }
+
+    function decreaseCount(a, b) {
+        var input = b.nextElementSibling;
+        var value = parseInt(input.value, 10);
+        if (value > 1) {
+            value = isNaN(value) ? 0 : value;
+            value--;
+            input.value = value;
+        }
+    }
+</script>
 <?php get_footer('') ?>
