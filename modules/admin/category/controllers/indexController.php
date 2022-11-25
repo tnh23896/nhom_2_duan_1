@@ -18,12 +18,14 @@ function createPostAction() {
     $name = $_POST['name'];
     $image = $_FILES['image'];
     $image_name = $_FILES['image']['name'];
+
     if (empty($name)) {
         push_notification('danger', ['Vui lòng nhập vào tên danh mục']);
         header('Location: ?role=admin&mod=category&action=create');
         die();
     }
-    create_category($name, $image_name);
+    create_category($name);
+
     push_notification('success', ['Tạo mới danh mục sản phẩm thành công']);
     header('Location: ?role=admin&mod=category');
 }
@@ -55,14 +57,14 @@ function updatePostAction() {
         die();
     }
     $name = $_POST['name'];
-    $description = $_POST['description'];
+    
     if (empty($name)) {
         push_notification('errors', [
             'name' => 'Vui lòng nhập vào tên danh mục'
         ]);
         header('Location: ?role=admin&mod=category&action=update&id_cate='.$id);
     }
-    update_category($id, $name, $description);
+    update_category($id, $name);
     push_notification('success', ['Chỉnh sửa danh mục sản phẩm thành công']);
     header('Location: ?role=admin&mod=category');
 }

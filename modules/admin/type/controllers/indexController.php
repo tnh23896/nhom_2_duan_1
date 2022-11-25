@@ -60,7 +60,7 @@ function updatePostAction() {
         ]);
         header('Location: ?role=admin&mod=types&action=update&id_type='.$id);
     }
-    update_types($id, $name, $description);
+    update_types($id, $name);
     push_notification('success', ['Chỉnh sửa loại sản phẩm thành công']);
     header('Location: ?role=admin&mod=type');
 }
