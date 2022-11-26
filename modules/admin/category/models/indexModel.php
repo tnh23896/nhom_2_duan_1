@@ -2,15 +2,12 @@
 function get_list_categories() {
     $result = db_fetch_array("SELECT * FROM `categories`");
 
-    $result = db_fetch_array("SELECT * from categories");
     return $result;
 }
 
 function get_one_category($id) {
 
     $result = db_fetch_row("SELECT * FROM `categories` WHERE `id` = '$id'");
-
-    $result = db_fetch_row("SELECT * FROM categories Where id = $id");
 
     return $result;
 }
