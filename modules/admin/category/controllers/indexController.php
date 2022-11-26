@@ -16,8 +16,6 @@ function createAction() {
 
 function createPostAction() {
     $name = $_POST['name'];
-    $image = $_FILES['image'];
-    $image_name = $_FILES['image']['name'];
 
     if (empty($name)) {
         push_notification('danger', ['Vui lòng nhập vào tên danh mục']);

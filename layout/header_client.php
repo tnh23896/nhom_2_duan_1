@@ -1,3 +1,7 @@
+<?php if(is_login()){
+    $user = get_login();
+}  ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,13 +35,23 @@
                     </div>
                 </div>
                 <div class="login flex items-center pl-[50px]">
-                    <img src="public/images/login.png" alt="">
-                    <div class="pl-[10px]">
-                        <div>
-                            <a class="font-['Roboto Serif']  underline text-[#414141]">Đăng nhập</a>
+                    <?php if (!empty($user)) : ?>
+                        <img src="public/images/<?php echo $user['image'] ?>" alt="" class="w-[60px]  object-contain rounded-full">
+                        <div class="pl-[10px]">
+                            <div>
+                            <a href="http://localhost/nhom_2_du_an_1/?mod=account" class="font-['Roboto Serif'] btn btn-sm btn-light-primary font-weight-bolder py-2  uppercase text-green-500 "><?php echo $user['full_name'] ?></a>
+                            </div>
+                            <a href="?role=client&mod=login&action=logout" class="btn btn-sm btn-light-primary font-weight-bolder py-2  text-red-400 underline">Đăng xuất</a>
                         </div>
-                        <a class="text-[#414141] underline">Đăng kí</a>
-                    </div>
+                    <?php else : ?>
+                        <img src="public/images/login.png" alt="">
+                        <div class="pl-[10px]">
+                            <div>
+                                <a href="http://localhost/nhom_2_du_an_1/?mod=login" class="font-['Roboto Serif']  underline text-[#414141] hover:text-blue-500">Đăng nhập</a>
+                            </div>
+                            <a  href="http://localhost/nhom_2_du_an_1/?mod=register" class="text-[#414141] underline hover:text-blue-500">Đăng kí</a>
+                        </div>
+                    <?php endif ?>
                 </div>
                 <div class="cart flex pl-[75px]">
                     <div class="w-[157px] h-[44px] border-[3px] bg-red rounded-[10px] items-center flex">
