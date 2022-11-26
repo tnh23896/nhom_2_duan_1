@@ -1,5 +1,10 @@
 <?php get_header('', 'Trang chủ') ?>
 <main class="">
+    <?php foreach ($notifications as $notification) : ?>
+        <?php foreach ($notification['msgs'] as $msg) : ?>
+            <span class="label label-lg text-<?php echo $notification['type'] ?>-500 label-inline mb-3"><?php echo $msg ?></span>
+        <?php endforeach; ?>
+    <?php endforeach; ?>
     <section class="mb-[33px] ">
         <img src="public/images/banner.png" alt="" class="w-full">
     </section>

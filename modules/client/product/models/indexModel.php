@@ -18,11 +18,12 @@ function get_one_category($id)
 }
 function get_count_pro($value)
 {
-    $result = db_fetch_row("select count(id) as total from products where title LIKE '%$value%' ");
+    $result = db_fetch_row("select count(id) as total from products where title LIKE '%$value%'");
     return  $result;
 }
-function get_limit_pro($start, $limit,$value)
+function get_limit_pro($start, $limit, $value)
 {
-    $result = db_fetch_array("SELECT * FROM products where title LIKE '%$value%'  LIMIT $start, $limit ");
+
+    $result = db_fetch_array("SELECT * FROM products where title LIKE '%$value%'  LIMIT $start, $limit");
     return $result;
 }

@@ -1,6 +1,7 @@
 <?php if (is_login()) {
     $user = get_login();
-}  ?>
+};
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +22,7 @@
                     <img src="public/images/logo.png" class="w-full h-full" alt="">
                 </div>
                 <form class="flex" method="POST" action="?mod=product">
-                    <input type="text" name="search" id="" class="py-2 outline-none w-[340px]  pl-[10px] bg-[#E8E8E8] rounded-l-[5px]" placeholder="Tìm sản phẩm ở đây...">
+                    <input type="text" name="search" id="" class="py-2 outline-none w-[340px]  pl-[10px] bg-[#E8E8E8] rounded-l-[5px]" placeholder="Tìm ở đây">
                     <button name="btn" type="submit" class=" px-3 flex items-center  bg-[#E8E8E8] rounded-r-[5px]">
                         <img src="public/images/bx_search-alt-2.png" alt="">
                     </button>
