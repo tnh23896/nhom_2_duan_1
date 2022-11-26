@@ -228,5 +228,31 @@ function request_auth($isLogin = true)
         die;
     }
 }
+function push_login($user) {
+    $_SESSION["login"] = $user;
+}
+
+function remove_login() {
+    unset($_SESSION["login"]);
+}
+
+function is_login()
+{
+    return isset($_SESSION["login"]);
+}
+
+function get_login()
+{
+    return $_SESSION["login"];
+}
+
+function request_login($isLogin = true)
+{
+    if (is_login() !== $isLogin) {
+        header("Location: " . ($isLogin ? '?&mod=login' : ''));
+        die;
+    }
+}
+
 
 ?>

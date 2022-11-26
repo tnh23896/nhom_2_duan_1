@@ -18,3 +18,7 @@ function get_list_comments_by_product_id($product_id)
 FROM comments cmt
   JOIN users u ON cmt.id_user = u.id WHERE id_pro = $product_id");
 }
+function get_list_products_by_category($cate_id)
+{
+  return db_fetch_array("SELECT * FROM products p WHERE p.category_id = $cate_id");
+}

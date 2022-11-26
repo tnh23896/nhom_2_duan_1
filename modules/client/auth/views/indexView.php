@@ -1,4 +1,4 @@
-<?php get_header('base', 'Đăng nhập') ?>
+<?php get_header('', 'Đăng nhập') ?>
 <!--begin::Main-->
 <div class="d-flex flex-column flex-root">
     <!--begin::Login-->
