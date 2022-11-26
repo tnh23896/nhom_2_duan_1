@@ -1,4 +1,4 @@
-<?php if(is_login()){
+<?php if (is_login()) {
     $user = get_login();
 }  ?>
 
@@ -20,9 +20,9 @@
                 <div class="logo w-[70px] ">
                     <img src="public/images/logo.png" class="w-full h-full" alt="">
                 </div>
-                <form class="flex">
-                    <input type="text" name="" id="" class="py-2 outline-none w-[340px]  pl-[10px] bg-[#E8E8E8] rounded-l-[5px]" placeholder="Tìm sản phẩm ở đây...">
-                    <button class=" px-3 flex items-center  bg-[#E8E8E8] rounded-r-[5px]">
+                <form class="flex" method="POST" action="?mod=product">
+                    <input type="text" name="search" id="" class="py-2 outline-none w-[340px]  pl-[10px] bg-[#E8E8E8] rounded-l-[5px]" placeholder="Tìm sản phẩm ở đây...">
+                    <button name="btn" type="submit" class=" px-3 flex items-center  bg-[#E8E8E8] rounded-r-[5px]">
                         <img src="public/images/bx_search-alt-2.png" alt="">
                     </button>
                 </form>
@@ -39,7 +39,7 @@
                         <img src="public/images/<?php echo $user['image'] ?>" alt="" class="w-[60px]  object-contain rounded-full">
                         <div class="pl-[10px]">
                             <div>
-                            <a href="http://localhost/nhom_2_du_an_1/?mod=account" class="font-['Roboto Serif'] btn btn-sm btn-light-primary font-weight-bolder py-2  uppercase text-green-500 "><?php echo $user['full_name'] ?></a>
+                                <a href="http://localhost/nhom_2_du_an_1/?mod=account" class="font-['Roboto Serif'] btn btn-sm btn-light-primary font-weight-bolder py-2  uppercase text-green-500 "><?php echo $user['full_name'] ?></a>
                             </div>
                             <a href="?role=client&mod=login&action=logout" class="btn btn-sm btn-light-primary font-weight-bolder py-2  text-red-400 underline">Đăng xuất</a>
                         </div>
@@ -49,7 +49,7 @@
                             <div>
                                 <a href="http://localhost/nhom_2_du_an_1/?mod=login" class="font-['Roboto Serif']  underline text-[#414141] hover:text-blue-500">Đăng nhập</a>
                             </div>
-                            <a  href="http://localhost/nhom_2_du_an_1/?mod=register" class="text-[#414141] underline hover:text-blue-500">Đăng kí</a>
+                            <a href="http://localhost/nhom_2_du_an_1/?mod=register" class="text-[#414141] underline hover:text-blue-500">Đăng kí</a>
                         </div>
                     <?php endif ?>
                 </div>
