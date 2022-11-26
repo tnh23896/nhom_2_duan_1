@@ -14,11 +14,21 @@ function get_list_comments_by_product_id($product_id)
   return db_fetch_array("SELECT
   u.full_name,
   u.image,
-  cmt.description
+  cmt.description,
+  cmt.created_at
 FROM comments cmt
   JOIN users u ON cmt.id_user = u.id WHERE id_pro = $product_id");
 }
 function get_list_products_by_category($cate_id)
 {
   return db_fetch_array("SELECT * FROM products p WHERE p.category_id = $cate_id");
+}
+function create_comment($desc, $user_id, $pro_id)
+{
+  $id = db_insert('comments', [
+    'description' => $desc,
+    'id_user' => $user_id,
+    'id_pro' => $pro_id,
+  ]);
+  return $id;
 }

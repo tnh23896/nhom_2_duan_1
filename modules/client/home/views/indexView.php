@@ -39,12 +39,12 @@
     <section class="bg-[#F9F9F9] pb-[31px] mb-[31px]">
         <h3 class="font-['Yeseva One'] text-[30px] py-[27px]">Sản phẩm</h3>
         <div class="grid grid-cols-5 gap-4">
-            <?php foreach ($products as $product) : ?>
+            <?php foreach ($result as $product) : ?>
 
                 <a href="?mod=detail&id=<?= $product['id'] ?>" class="p-2.5  text-xs sm:text-sm bg-white shadow-lg">
                     <img class="w-full transition-transform  hover:-translate-y-2 max-h-36 object-cover min-h-[100px]" src="public/images/<?= $product['images'] ?>" alt="">
                     <h3 class="mt-2.5 text-xl">
-                        <?= $product['name'] ?>
+                        <?= $product['title'] ?>
                     </h3>
                     <div>
                     </div>
@@ -56,6 +56,33 @@
                     </div>
                 </a>
             <?php endforeach ?>
+            <div class="pagination">
+                <?php
+                // PHẦN HIỂN THỊ PHÂN TRANG
+                // BƯỚC 7: HIỂN THỊ PHÂN TRANG
+
+                // nếu current_page > 1 và total_page > 1 mới hiển thị nút prev
+                if ($current_page > 1 && $total_page > 1) {
+                    echo '<a href="index.php?page=' . ($current_page - 1) . '">Prev</a> | ';
+                }
+
+                // Lặp khoảng giữa
+                for ($i = 1; $i <= $total_page; $i++) {
+                    // Nếu là trang hiện tại thì hiển thị thẻ span
+                    // ngược lại hiển thị thẻ a
+                    if ($i == $current_page) {
+                        echo '<span>' . $i . '</span> | ';
+                    } else {
+                        echo '<a href="index.php?page=' . $i . '">' . $i . '</a> | ';
+                    }
+                }
+
+                // nếu current_page < $total_page và total_page > 1 mới hiển thị nút prev
+                if ($current_page < $total_page && $total_page > 1) {
+                    echo '<a href="index.php?page=' . ($current_page + 1) . '">Next</a> | ';
+                }
+                ?>
+            </div>
         </div>
 
 
