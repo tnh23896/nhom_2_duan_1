@@ -22,7 +22,7 @@
                     <div>
                         <label class="text-[15px] text-[#414141]">Email</label>
                     </div>
-                    <input  disabled class="w-[300px] h-[44px] border pl-[10px] rounded-[5px]" type="text" name="email" id="" value="<?= $user['email'] ?>" placeholder="Email">
+                    <input disabled class="w-[300px] h-[44px] border pl-[10px] rounded-[5px]" type="text" name="email" id="" value="<?= $user['email'] ?>" placeholder="Email">
                 </div>
                 <div class="Phone py-[10px]">
                     <div>
@@ -43,7 +43,7 @@
         </div>
         <div class="flex justify-center">
             <div class="save bg-[#198754] w-[240px] h-[46px] rounded-[3px] flex items-center justify-center">
-                <button class="text-[#ffffff] text-[22px] font-bold">Lưu</button>
+                <button class="text-[#ffffff] text-[22px] font-bold cursor-pointer">Lưu</button>
             </div>
         </div>
     </form>

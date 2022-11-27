@@ -267,7 +267,7 @@ function get_login()
 function request_login($isLogin = true)
 {
     if (is_login() !== $isLogin) {
-        header("Location: " . ($isLogin ? '?&mod=login' : ''));
+        header("Location: " . ($isLogin ? '?mod=login' : '?mod=home'));
         die;
     }
 }
@@ -275,6 +275,10 @@ function request_login($isLogin = true)
 function push_ss($key, $value)
 {
     $_SESSION["$key"] = $value;
+}
+function is_ss($key)
+{
+    return isset($_SESSION["$key"]);
 }
 function get_ss($key)
 {

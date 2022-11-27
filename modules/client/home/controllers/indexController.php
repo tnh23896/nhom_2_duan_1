@@ -7,7 +7,6 @@ function construct()
 
 function indexAction()
 {
-    request_login(false);
     $data['notifications'] = get_notification();
     $data['products'] = get_list_products();
     // ---------------------

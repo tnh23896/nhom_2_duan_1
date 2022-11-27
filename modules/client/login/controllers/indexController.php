@@ -1,10 +1,12 @@
 <?php
 
-function construct() {
+function construct()
+{
     load_model('index');
 }
 
-function indexAction() {
+function indexAction()
+{
     request_login(false);
     $notifications = get_notification();
     load_view('index', [
@@ -12,7 +14,8 @@ function indexAction() {
     ]);
 }
 
-function indexPostAction() {
+function indexPostAction()
+{
     request_login(false);
     // validation
     $username = $_POST['username'];
@@ -25,14 +28,15 @@ function indexPostAction() {
     $login = get_login_user($username, $password);
     if ($login) {
         push_login($login);
-        header('Location: ?role=client');
+        header('Location: ?mod=home');
     } else {
         push_notification('red', ['Tài khoản hoặc mật khẩu không chính xác']);
         header('Location: ?role=client&mod=login');
     }
 }
 
-function logoutAction() {
+function logoutAction()
+{
     request_login();
     remove_login();
     header("Location: ?role=client&mod=login");

@@ -4,74 +4,49 @@
         <div class="w-full bg-white px-10 py-10">
             <div class="flex justify-between border-b pb-8">
                 <h1 class="font-semibold text-2xl">Thanh toán</h1>
-                <h2 class="font-semibold text-2xl">3 Sản phẩm</h2>
+                <h2 class="font-semibold text-2xl"><?= count($products) ?> Sản phẩm</h2>
             </div>
+            <?php foreach ($notifications as $notification) : ?>
+                <?php foreach ($notification['msgs'] as $msg) : ?>
+                    <span class="label label-lg text-<?php echo $notification['type'] ?>-500 label-inline mb-3"><?php echo $msg ?></span>
+                <?php endforeach; ?>
+            <?php endforeach; ?>
             <div class="flex mt-10 mb-5">
                 <h3 class="font-semibold text-gray-600 text-xs uppercase w-2/5">Chi tiết sản phẩm</h3>
                 <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Số lượng</h3>
                 <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Giá</h3>
                 <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Tổng thanh toán</h3>
             </div>
+            <?php foreach ($products as $key => $product) : ?>
+                <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
+                    <div class="flex w-2/5">
+                        <!-- product -->
+                        <div class="w-20">
+                            <img class="w-full object-cover" src="public/images/<?= $product[0] ?>" alt="">
+                        </div>
+                        <div class="flex flex-col justify-between ml-4 flex-grow">
+                            <span class="font-bold text-sm"><?= $product[1] ?></span>
+                            <span class="text-red-500 text-xs"><?= $product[6] ?></span>
+                        </div>
+                    </div>
+                    <div class="flex justify-center w-1/5">
+                        <div class="mx-2 text-center w-8"><?= $product[2] ?></div>
+                    </div>
+                    <span class="text-center w-1/5 font-semibold text-sm"><?= $product[3] ?></span>
+                    <span class="text-center w-1/5 font-semibold text-sm"><?= $product[4] ?></span>
+                </div>
+            <?php endforeach ?>
             <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
-                <div class="flex w-2/5">
-                    <!-- product -->
-                    <div class="w-20">
-                        <img class="h-24" src="https://drive.google.com/uc?id=18KkAVkGFvaGNqPy2DIvTqmUH_nk39o3z" alt="">
-                    </div>
+                <div class="flex w-3/5">
                     <div class="flex flex-col justify-between ml-4 flex-grow">
-                        <span class="font-bold text-sm">Iphone 6S</span>
-                        <span class="text-red-500 text-xs">Loại</span>
-                        <span class="text-red-500 text-xs">Apple</span>
-
+                        <span class="font-bold text-sm">Cái giá phải trả</span>
                     </div>
                 </div>
-                <div class="flex justify-center w-1/5">
-                    <div class="mx-2 text-center w-8">1</div>
+                <div class="flex justify-center w-2/5">
+                    <div class="mx-2 text-center w-8"><?= $product[2] ?>đ</div>
                 </div>
-                <span class="text-center w-1/5 font-semibold text-sm">4.000.000</span>
-                <span class="text-center w-1/5 font-semibold text-sm">4.000.000</span>
+
             </div>
-
-            <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
-                <div class="flex w-2/5">
-                    <!-- product -->
-                    <div class="w-20">
-                        <img class="h-24" src="https://drive.google.com/uc?id=10ht6a9IR3K2i1j0rHofp9-Oubl1Chraw" alt="">
-                    </div>
-                    <div class="flex flex-col justify-between ml-4 flex-grow">
-                        <span class="font-bold text-sm">Xiaomi Mi 20000mAh</span>
-                        <span class="text-red-500 text-xs">Loại</span>
-                        <span class="text-red-500 text-xs">Xiaomi</span>
-
-                    </div>
-                </div>
-                <div class="flex justify-center w-1/5">
-                    <div class="mx-2 text-center w-8">1</div>
-                </div>
-                <span class="text-center w-1/5 font-semibold text-sm">2.000.000</span>
-                <span class="text-center w-1/5 font-semibold text-sm">2.000.000</span>
-            </div>
-
-            <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
-                <div class="flex w-2/5">
-                    <!-- product -->
-                    <div class="w-20">
-                        <img class="h-24" src="https://drive.google.com/uc?id=1vXhvO9HoljNolvAXLwtw_qX3WNZ0m75v" alt="">
-                    </div>
-                    <div class="flex flex-col justify-between ml-4 flex-grow">
-                        <span class="font-bold text-sm">Airpods</span>
-                        <span class="text-red-500 text-xs">Loại</span>
-                        <span class="text-red-500 text-xs">Apple</span>
-
-                    </div>
-                </div>
-                <div class="flex justify-center w-1/5">
-                    <div class="mx-2  text-center w-8">1</div>
-                </div>
-                <span class="text-center w-1/5 font-semibold text-sm">6.000.000</span>
-                <span class="text-center w-1/5 font-semibold text-sm">6.000.000</span>
-            </div>
-
 
         </div>
 

@@ -40,7 +40,7 @@
                         <img src="public/images/<?php echo $user['image'] ?>" alt="" class="w-[60px]  object-contain rounded-full">
                         <div class="pl-[10px]">
                             <div>
-                                <a href="http://localhost/nhom_2_du_an_1/?mod=account" class="font-['Roboto Serif'] btn btn-sm btn-light-primary font-weight-bolder py-2  uppercase text-green-500 "><?php echo $user['full_name'] ?></a>
+                                <a href="?mod=account" class="font-['Roboto Serif'] btn btn-sm btn-light-primary font-weight-bolder py-2  uppercase text-green-500 "><?php echo $user['full_name'] ?></a>
                             </div>
                             <a href="?role=client&mod=login&action=logout" class="btn btn-sm btn-light-primary font-weight-bolder py-2  text-red-400 underline">Đăng xuất</a>
                         </div>
@@ -65,11 +65,13 @@
             </div>
             <nav class="menu w-full h-[65px] bg-[#198754] flex items-center justify-center ">
                 <ul class="flex justify-around gap-9">
-                    <li class="text-[#ffffff]"><a href="http://localhost/nhom_2_du_an_1">Trang chủ</a></li>
-                    <li class="text-[#ffffff]"><a href="http://localhost/nhom_2_du_an_1/?mod=login">Đăng nhập</a></li>
-                    <li class="text-[#ffffff]"><a href="http://localhost/nhom_2_du_an_1/?mod=register">Đăng ký</a></li>
-                    <li class="text-[#ffffff]"><a href="http://localhost/nhom_2_du_an_1/?mod=cart">Giỏ hàng</a></li>
-                    <li class="text-[#ffffff]"><a href="http://localhost/nhom_2_du_an_1/?mod=account">Tài khoản</a></li>
+                    <li class="text-[#ffffff]"><a href="?mod=home">Trang chủ</a></li>
+                    <?php if (!is_login()) : ?>
+                        <li class="text-[#ffffff]"><a href="?mod=login">Đăng nhập</a></li>
+                        <li class="text-[#ffffff]"><a href="?mod=register">Đăng ký</a></li>
+                    <?php endif ?>
+                    <li class="text-[#ffffff]"><a href="?mod=cart">Giỏ hàng</a></li>
+                    <li class="text-[#ffffff]"><a href="?mod=account">Tài khoản</a></li>
                 </ul>
             </nav>
         </header>
