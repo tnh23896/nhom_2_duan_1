@@ -17,6 +17,7 @@
                 <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Giá</h3>
                 <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Tổng thanh toán</h3>
             </div>
+            <?php $price_total = 0 ?>
             <?php foreach ($products as $key => $product) : ?>
                 <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
                     <div class="flex w-2/5">
@@ -43,6 +44,7 @@
                     </div>
                     <span class="text-center w-1/5 font-semibold text-sm"><?= $product[3] ?></span>
                     <span class="text-center w-1/5 font-semibold text-sm"><?= $product[4] ?></span>
+                    <?php $price_total += $product[4] ?>
                 </div>
             <?php endforeach ?>
 
@@ -58,8 +60,8 @@
         <div id="summary" class="w-1/4 px-8 py-10">
             <h1 class="font-semibold text-2xl border-b pb-8">Tổng</h1>
             <div class="flex justify-between mt-10 mb-5">
-                <span class="font-semibold text-sm uppercase">3 Sản phẩm</span>
-                <span class="font-semibold text-sm">8.000.000</span>
+                <span class="font-semibold text-sm uppercase"><?= count($products) ?> sản phẩm</span>
+                <span class="font-semibold text-sm"><?= $price_total ?></span>
             </div>
             <div>
                 <label class="font-medium inline-block mb-3 text-sm uppercase">Mua sắm</label>
@@ -75,7 +77,7 @@
             <div class="border-t mt-8 ">
                 <div class="flex font-semibold justify-between py-6 text-sm uppercase">
                     <span>Tổng thanh toán</span>
-                    <span>$8.000.000</span>
+                    <span><?= $price_total ?>đ</span>
                 </div>
                 <a href="?mod=pay" class="bg-green-500 font-semibold hover:bg-indigo-600  p-3 text-sm text-white uppercase w-full">Chuyển sang thanh toán</a>
             </div>

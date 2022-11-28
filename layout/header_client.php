@@ -71,6 +71,7 @@
                         <li class="text-[#ffffff]"><a href="?mod=register">Đăng ký</a></li>
                     <?php endif ?>
                     <li class="text-[#ffffff]"><a href="?mod=cart">Giỏ hàng</a></li>
+                    <li class="text-[#ffffff]"><a href="?mod=bill">Hoá đơn</a></li>
                     <li class="text-[#ffffff]"><a href="?mod=account">Tài khoản</a></li>
                 </ul>
             </nav>

@@ -9,22 +9,12 @@
         <img src="public/images/banner.png" alt="" class="w-full">
     </section>
     <section class="bg-[#F9F9F9] text-[15px] flex justify-center space-x-[75px] mb-[21px]">
-        <div class="mt-[10px] mb-[19px]">
-            <img src="public/images/brand1.png" alt="">
-            <p class="text-center mt-[26px]">Vinamilk</p>
-        </div>
-        <div class="mt-[10px] mb-[19px]">
-            <img src="public/images/brand2.png" alt="">
-            <p class="text-center mt-[26px]">TH true milk</p>
-        </div>
-        <div class="mt-[10px] mb-[19px]">
-            <img src="public/images/brand3.png" alt="">
-            <p class="text-center mt-[26px]">Ba vì</p>
-        </div>
-        <div class="mt-[10px] mb-[19px]">
-            <img src="public/images/brand4.png" alt="">
-            <p class="text-center mt-[26px]">Cô gái Hà Lan</p>
-        </div>
+        <?php foreach ($brands as $br) : ?>
+            <div class="mt-[10px] mb-[19px]">
+                <img src="public/images/<?= $br['image'] ?>" alt="">
+                <p class="text-center mt-[26px]"><?= $br['name'] ?></p>
+            </div>
+        <?php endforeach; ?>
     </section>
     <section class="pb-[40px]">
         <div class="bg-[#004031] rounded-[5px] mx-[10px] h-[40px] mb-[40px]">
@@ -32,11 +22,9 @@
         </div>
         <div class="border-b-gray-400 border-b-[3px] border-solid  ">
             <ul class="text-[20px] flex justify-center space-x-[50px]  pb-[20px]">
-                <li><a href="" class="hover:text-red-600">Sữa trẻ sơ sinh</a></li>
-                <li><a href="" class="hover:text-red-600">Sữa dinh dưỡng</a></li>
-                <li><a href="" class="hover:text-red-600">Sữa vitamin</a></li>
-                <li><a href="" class="hover:text-red-600">Sữa người cao tuổi</a></li>
-                <li><a href="" class="hover:text-red-600">Sữa hộp</a></li>
+                <?php foreach ($categories as $category) : ?>
+                    <li><a href="?mod=product&cate_id=<?= $category['id'] ?>" class="hover:text-red-600"><?= $category['name'] ?></a></li>
+                <?php endforeach; ?>
             </ul>
         </div>
     </section>

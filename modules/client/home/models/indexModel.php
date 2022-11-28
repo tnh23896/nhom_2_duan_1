@@ -19,13 +19,17 @@ function get_list_products()
 
 function get_list_categories()
 {
-    $result = db_fetch_array("SELECT c.id, c.name, c.description, c.create_id, c.created_at, u.full_name, u.id as `uid` FROM `categories` c JOIN `users` u ON c.create_id = u.id");
+    $result = db_fetch_array("SELECT * from categories");
     return $result;
 }
-
+function get_list_brands()
+{
+    $result = db_fetch_array("SELECT * from brands");
+    return $result;
+}
 function get_one_category($id)
 {
-    $result = db_fetch_row("SELECT c.id, c.name, c.description, c.create_id, c.created_at, u.full_name, u.id as `uid` FROM `categories` c JOIN `users` u ON c.create_id = u.id WHERE c.id = $id");
+    $result = db_fetch_row("SELECT * from categories WHERE id = $id");
     return $result;
 }
 function get_count_pro()

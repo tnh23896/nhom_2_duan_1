@@ -66,7 +66,7 @@ function indexPostAction()
         if (!is_ss('cart')) {
             push_ss('cart', []);
         }
-        array_push($_SESSION['cart'], [$image, $title, $quantity, $price, $total_price, $brand_id, $brand_name, $type_id, $type_name]);
+        array_push($_SESSION['cart'], [$image, $title, $quantity, $price, $total_price, $brand_id, $brand_name, $type_id, $type_name, $id_pro]);
         push_notification('green', ['Thêm sản phẩm vào giỏ hàng thành công']);
         header("Location: ?mod=detail&id=$id_pro");
         die;

@@ -17,6 +17,7 @@
                 <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Giá</h3>
                 <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Tổng thanh toán</h3>
             </div>
+            <?php $price_total = 0 ?>
             <?php foreach ($products as $key => $product) : ?>
                 <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
                     <div class="flex w-2/5">
@@ -34,6 +35,7 @@
                     </div>
                     <span class="text-center w-1/5 font-semibold text-sm"><?= $product[3] ?></span>
                     <span class="text-center w-1/5 font-semibold text-sm"><?= $product[4] ?></span>
+                    <?php $price_total += $product[4] ?>
                 </div>
             <?php endforeach ?>
             <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
@@ -43,9 +45,8 @@
                     </div>
                 </div>
                 <div class="flex justify-center w-2/5">
-                    <div class="mx-2 text-center w-8"><?= $product[2] ?>đ</div>
+                    <div class="mx-2 text-center w-8"><?= $price_total ?>đ</div>
                 </div>
-
             </div>
 
         </div>
@@ -59,25 +60,33 @@
             <div class="sm:text-3xl text-2xl font-semibold text-center text-sky-600  mb-12">
                 Thông tin người nhân
             </div>
-            <div class="">
+            <?php foreach ($notifications as $notification) : ?>
+                <?php foreach ($notification['msgs'] as $msg) : ?>
+                    <span class="label label-lg text-<?php echo $notification['type'] ?>-500 label-inline mb-3"><?php echo $msg ?></span>
+                <?php endforeach; ?>
+            <?php endforeach; ?>
+            <form action="" method="post" class="">
                 <div>
-                    <input type="text" class="focus:outline-none border-b w-full pb-2 border-sky-400 placeholder-gray-500" placeholder="Tên " />
+                    <input type="text" name="name" class="focus:outline-none border-b w-full pb-2 border-sky-400 placeholder-gray-500" placeholder="Tên " />
                 </div>
                 <div>
-                    <input type="email" class="focus:outline-none border-b w-full pb-2 border-sky-400 placeholder-gray-500 my-8" placeholder="Điện thoại" />
+                    <input type="number" name="phone" class="focus:outline-none border-b w-full pb-2 border-sky-400 placeholder-gray-500 my-8" placeholder="Điện thoại" />
                 </div>
 
                 <div>
                     <label class="">Địa chỉ</label>
-                    <textarea class="focus:outline-none border w-full pb-2 border-sky-400 placeholder-gray-500 mb-8"></textarea>
+                    <textarea name="address" class="focus:outline-none border w-full pb-2 border-sky-400 placeholder-gray-500 mb-8"></textarea>
                 </div>
-
+                <input type="hidden" name="price_total" value="<?= $price_total ?>">
+                <div>
+                    Tổng tiền cần trả: <?= $price_total ?>đ
+                </div>
                 <div class="flex justify-center my-6">
                     <button class=" rounded-full  p-3 w-full sm:w-56   bg-green-400 from-sky-600  to-teal-300 text-white text-lg font-semibold ">
                         Thanh toán
                     </button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </main>

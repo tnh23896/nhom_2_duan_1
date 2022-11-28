@@ -1,10 +1,16 @@
 <?php
 
-function show_array($data) {
+function show_array($data)
+{
     if (is_array($data)) {
         echo "<pre>";
-        print_r($data);
+        var_dump($data);
         echo "<pre>";
     }
 }
-
+function show_value($data)
+{
+    echo "<pre>";
+    var_dump($data);
+    echo "<pre>";
+}

@@ -29,23 +29,23 @@
         </div>
         <div class="pagination pt-[40px] text-green-700 text-[20px] ">
             <?php if ($current_page > 1 && $total_page > 1) : ?>
-                <a href="?mod=product&page=' . (<?= $current_page - 1 ?> ) . '">Prev</a> |
+                <a href="?mod=product<?= isset($_GET['cate_id']) ? "&cate_id=" . $_GET['cate_id'] : '' ?>&page=<?= $current_page - 1 ?>">Prev</a> |
             <?php endif ?>
             <?php
-            for ($i = 1; $i <= $total_page; $i++) {
-                // Nếu là trang hiện tại thì hiển thị thẻ span
-                // ngược lại hiển thị thẻ a
-                if ($i == $current_page) {
-                    echo '<span>' . $i . '</span> | ';
-                } else {
-                    echo '<a href="?mod=product&page=' . $i . '">' . $i . '</a> | ';
-                }
-            }
-            // nếu current_page < $total_page và total_page > 1 mới hiển thị nút prev
-            if ($current_page < $total_page && $total_page > 1) {
-                echo '<a href="?mod=product&page=' . ($current_page + 1) . '">Next</a> | ';
-            }
-            ?>
+            for ($i = 1; $i <= $total_page; $i++) : ?>
+                <!-- // Nếu là trang hiện tại thì hiển thị thẻ span
+                // ngược lại hiển thị thẻ a -->
+                <?php if ($i == $current_page) : ?>
+                    <span><?= $i ?></span> |
+                <?php else : ?>
+                    <a href="?mod=product<?= isset($_GET['cate_id']) ? "&cate_id=" . $_GET['cate_id'] : '' ?>&page=<?= $i ?>"><?= $i ?></a> |
+                <?php endif ?>
+            <?php endfor ?>
+            <!-- // nếu current_page < $total_page và total_page> 1 mới hiển thị nút prev -->
+            <?php if ($current_page < $total_page && $total_page > 1) : ?>
+                <a href="?mod=product<?= isset($_GET['cate_id']) ? "&cate_id=" . $_GET['cate_id'] : '' ?>&page=<?= ($current_page + 1) ?>">Next</a> |
+            <?php endif; ?>
+
         </div>
 
 

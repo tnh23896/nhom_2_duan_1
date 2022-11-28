@@ -9,6 +9,8 @@ function indexAction()
 {
     $data['notifications'] = get_notification();
     $data['products'] = get_list_products();
+    $data['categories'] = get_list_categories();
+    $data['brands'] = get_list_brands();
     // ---------------------
     $row = get_count_pro();
 

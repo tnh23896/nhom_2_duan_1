@@ -15,3 +15,33 @@ function indexAction()
     $data['products'] = get_ss('cart');
     load_view('index', $data);
 }
+function indexPostAction()
+{
+    $user = get_login();
+    $id_user = $user['id'];
+    $name = $_POST['name'];
+    $phone = $_POST['phone'];
+    $address = $_POST['address'];
+    $price_total = $_POST['price_total'];
+    $carts = get_ss('cart');
+
+    if (empty($name) || empty($phone) || empty($address)) {
+        push_notification('red', ['Thiếu rồi']);
+        header('Location: ?role=client&mod=pay');
+        die;
+    }
+    $bill_id = create_bill($price_total, $name, $phone, $address, $id_user);
+
+    foreach ($carts as $key => $cart) {
+        // [$image, $title, $quantity, $price, $total_price, $brand_id, $brand_name, $type_id, $type_name, $id_pro]
+        $id_products = $cart[9];
+        $id_bill = $bill_id;
+        $quantity = $cart[2];
+        $price_total = $cart[4];
+        $price = $cart[3];
+        create_bill_detail($id_products, $id_bill, $quantity, $price_total, $price);
+        push_notification('green', ['Thanh toán thành công']);
+        header('Location: ?role=client&mod=bill');
+        die;
+    }
+}
