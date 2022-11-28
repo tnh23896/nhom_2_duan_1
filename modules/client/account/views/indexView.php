@@ -33,7 +33,7 @@
             </div>
             <div class="image m-auto">
                 <div class="m-auto flex flex-col items-center ">
-                    <img src="public/images/<?= $user['image'] ?>" alt="" width="80">
+                    <img src="public/images/<?= $user['image'] ?>" alt="" width="" class="w-[80px] rounded-full">
                     <div class="pt-[10px]">
                         <label for="image" class=" cursor-pointer p-[5px] bg-green-500 border hover:bg-green-700 text-white">Thay ảnh đại diện</label>
                         <input type="file" name="image" id="image" hidden>

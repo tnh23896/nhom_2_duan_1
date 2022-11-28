@@ -41,6 +41,7 @@ function indexPostAction()
         $price = $cart[3];
         create_bill_detail($id_products, $id_bill, $quantity, $price_total, $price);
         push_notification('green', ['Thanh toán thành công']);
+        $_SESSION['cart'] = [];
         header('Location: ?role=client&mod=bill');
         die;
     }
