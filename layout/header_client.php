@@ -17,10 +17,10 @@
 <body class="bg-[#F9F9F9]">
     <div class="container w-full m-auto font-['Roboto Serif'] font-sans">
         <header class="">
-            <div class="flex items-center justify-between py-5">
-                <div class="logo w-[70px] ">
+            <div class="flex items-center justify-between px-10 py-5">
+                <a href="?" class="logo w-[70px] ">
                     <img src="public/images/logo.png" class="w-full h-full" alt="">
-                </div>
+                </a>
                 <form class="flex" method="POST" action="?mod=product">
                     <input type="text" name="search" id="" class="py-2 outline-none w-[340px]  pl-[10px] bg-[#E8E8E8] rounded-l-[5px]" placeholder="Tìm ở đây">
                     <button name="btn" type="submit" class=" px-3 flex items-center  bg-[#E8E8E8] rounded-r-[5px]">
@@ -55,12 +55,12 @@
                     <?php endif ?>
                 </div>
                 <div class="cart flex pl-[75px]">
-                    <div class="w-[157px] h-[44px] border-[3px] bg-red rounded-[10px] items-center flex">
+                    <a href="?mod=cart" class="w-[157px] h-[44px] border-[3px] bg-red rounded-[10px] items-center flex">
                         <img src="public/images/cart.png" alt="" class="pl-[5px]">
                         <span class="px-[10px] text-[15] text-[#414141] text-center">Giỏ hàng</span>
                         <div class="bg-[#FFC107] w-[17px] h-[18px] text-center rounded-[3px] text-[13px] text-[#414141]">
-                            0</div>
-                    </div>
+                            <?= is_ss('cart') ? count($_SESSION['cart']) : 0 ?></div>
+                    </a>
                 </div>
             </div>
             <nav class="menu w-full h-[65px] bg-[#198754] flex items-center justify-center ">

@@ -36,13 +36,15 @@ function createPostAction()
         header('Location: ?role=admin&mod=product&action=create');
         die();
     }
-    $create_product = create_product($title, $category_id, $description, $count, $price, $thumb_name, $brand_id);
+    $t = time() . $thumb_name;
+    $create_product = create_product($title, $category_id, $description, $count, $price, $t, $brand_id);
     foreach ($type_id as $types_id) {
         create_type($types_id, $create_product);
     }
-    move_uploaded_file($thumb['tmp_name'], 'public/images/' . $thumb_name);
+    move_uploaded_file($thumb['tmp_name'], 'public/images/' . $t);
     push_notification('success', ['Tạo mới sản phẩm thành công']);
     header('Location: ?role=admin&mod=product');
+    die;
 }
 
 function deleteAction()
@@ -51,6 +53,7 @@ function deleteAction()
     delete_product($id);
     push_notification('success', ['Xoá  sản phẩm thành công']);
     header('Location: ?role=admin&mod=product');
+    die;
 }
 
 function updateAction()
@@ -66,6 +69,7 @@ function updateAction()
         load_view('update', $data);
     } else {
         header('Location: ?role=admin&mod=product');
+        die;
     }
 }
 
@@ -95,9 +99,12 @@ function updatePostAction()
             'title' => 'Vui lòng nhập vào tiêu đề sản phẩm'
         ]);
         header('Location: ?role=admin&mod=product&action=update&id_prod=' . $id_pro);
+        die;
     }
-    update_product($id_pro, $title, $category_id, $description, $count, $price, $thumb_name, $brand_id);
-    move_uploaded_file($thumb['tmp_name'], 'public/images/' . $thumb['name']);
+    $t = time() . $thumb_name;
+    update_product($id_pro, $title, $category_id, $description, $count, $price, $t, $brand_id);
+    move_uploaded_file($thumb['tmp_name'], 'public/images/' . $t);
     push_notification('success', ['Chỉnh sửa danh mục sản phẩm thành công']);
     header('Location: ?role=admin&mod=product');
+    die;
 }

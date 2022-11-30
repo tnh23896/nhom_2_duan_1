@@ -3,6 +3,7 @@
 function construct()
 {
     load_model('index');
+    load('helper', 'format');
 }
 
 function indexAction()
@@ -14,6 +15,14 @@ function indexAction()
     $data['notifications'] = get_notification();
     $data['products'] = get_ss('cart');
     load_view('index', $data);
+}
+function indexPostAction()
+{
+    $qty = $_POST['quantity'];
+    update_cart($qty);
+    push_notification('green', ['Sửa thành công']);
+    header("Location: ?mod=cart");
+    die;
 }
 function deleteAction()
 {

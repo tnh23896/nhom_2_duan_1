@@ -1,11 +1,11 @@
 <?php get_header('', 'Chi tiết sản phẩm') ?>
 <main>
-    <?php foreach ($notifications as $notification) : ?>
-        <?php foreach ($notification['msgs'] as $msg) : ?>
-            <span class="label label-lg text-<?php echo $notification['type'] ?>-500 label-inline mb-3"><?php echo $msg ?></span>
-        <?php endforeach; ?>
-    <?php endforeach; ?>
     <section class="mt-[37px] mb-[64px] bg-white rounded-[30px]  ">
+        <?php foreach ($notifications as $notification) : ?>
+            <?php foreach ($notification['msgs'] as $msg) : ?>
+                <div class="w-full text-center py-4 px-3 bg-<?php echo $notification['type'] ?>-500 text-white mb-3"><?php echo $msg ?></div>
+            <?php endforeach; ?>
+        <?php endforeach; ?>
 
         <form action="" method="post" class="flex">
             <img src="public/images/<?= $product['images'] ?>" alt="" class="w-[500px] py-[20px] mx-[56px]">
@@ -33,7 +33,7 @@
                         </div>
                     </div>
                     <div class="bg-[#FAFAFA] w-[24px] h-[38pr] rounded-[3px] mb-[16px]">
-                        <p class="text-[#F3283D] text-[25px] ml-[12px]"><?= $product['price'] ?>đ</p>
+                        <p class="text-[#F3283D] text-[25px] ml-[12px]"><?= currency_format($product['price']) ?></p>
                         <input type="hidden" name="price" value="<?= $product['price'] ?>">
                     </div>
                     <p class="text-[15px] mb-[12px]">Số lượng:</p>
@@ -153,11 +153,9 @@
                         <div>
                         </div>
                         <div class="mt-2.5">
-                            <div>Giá <?= $product['price'] ?></div>
+                            <div>Giá <?= currency_format($product['price']) ?></div>
                         </div>
-                        <div class="mt-2.5 break-words">
-                            <?= $product['description'] ?>
-                        </div>
+
                     </a>
                 <?php endforeach ?>
             </div>

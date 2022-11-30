@@ -38,3 +38,14 @@ function get_limit_pro_by_cate_id($start, $limit, $cate_id)
     $result = db_fetch_array("SELECT * FROM products where category_id = $cate_id  LIMIT $start, $limit");
     return $result;
 }
+function get_count_pro_by_brand_id($brand_id)
+{
+    $result = db_fetch_row("select count(id) as total from products where brand_id = $brand_id");
+    return  $result;
+}
+function get_limit_pro_by_brand_id($start, $limit, $brand_id)
+{
+
+    $result = db_fetch_array("SELECT * FROM products where brand_id = $brand_id  LIMIT $start, $limit");
+    return $result;
+}

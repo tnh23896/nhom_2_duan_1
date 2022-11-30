@@ -1,5 +1,5 @@
 <?php get_header('', 'Hoá đơn của bạn') ?>
-<main class="flex justify-center py-[50px]">
+<main class="flex justify-center py-[50px] px-10">
   <div class="bg-white mb-[30px] p-5">
     <h2 class="my-[30px] text-[40px] font-bold text-center">Hóa Đơn</h2>
     <div class="flex flex-col">

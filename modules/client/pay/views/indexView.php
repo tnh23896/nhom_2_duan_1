@@ -8,7 +8,7 @@
             </div>
             <?php foreach ($notifications as $notification) : ?>
                 <?php foreach ($notification['msgs'] as $msg) : ?>
-                    <span class="label label-lg text-<?php echo $notification['type'] ?>-500 label-inline mb-3"><?php echo $msg ?></span>
+                    <div class="w-full text-center py-4 px-3 bg-<?php echo $notification['type'] ?>-500 text-white mb-3"><?php echo $msg ?></div>
                 <?php endforeach; ?>
             <?php endforeach; ?>
             <div class="flex mt-10 mb-5">
@@ -33,8 +33,8 @@
                     <div class="flex justify-center w-1/5">
                         <div class="mx-2 text-center w-8"><?= $product[2] ?></div>
                     </div>
-                    <span class="text-center w-1/5 font-semibold text-sm"><?= $product[3] ?></span>
-                    <span class="text-center w-1/5 font-semibold text-sm"><?= $product[4] ?></span>
+                    <span class="text-center w-1/5 font-semibold text-sm"><?= currency_format($product[3]) ?></span>
+                    <span class="text-center w-1/5 font-semibold text-sm"><?= currency_format($product[4]) ?></span>
                     <?php $price_total += $product[4] ?>
                 </div>
             <?php endforeach ?>
@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <div class="flex justify-center w-2/5">
-                    <div class="mx-2 text-center w-8"><?= $price_total ?>đ</div>
+                    <div class="mx-2 text-center w-8"><?= currency_format($price_total) ?></div>
                 </div>
             </div>
 
@@ -62,7 +62,7 @@
             </div>
             <?php foreach ($notifications as $notification) : ?>
                 <?php foreach ($notification['msgs'] as $msg) : ?>
-                    <span class="label label-lg text-<?php echo $notification['type'] ?>-500 label-inline mb-3"><?php echo $msg ?></span>
+                    <div class="w-full text-center py-4 px-3 bg-<?php echo $notification['type'] ?>-500 text-white mb-3"><?php echo $msg ?></div>
                 <?php endforeach; ?>
             <?php endforeach; ?>
             <form action="" method="post" class="">
@@ -79,7 +79,7 @@
                 </div>
                 <input type="hidden" name="price_total" value="<?= $price_total ?>">
                 <div>
-                    Tổng tiền cần trả: <?= $price_total ?>đ
+                    Tổng tiền cần trả: <?= currency_format($price_total)  ?>
                 </div>
                 <div class="flex justify-center my-6">
                     <button class=" rounded-full  p-3 w-full sm:w-56   bg-green-400 from-sky-600  to-teal-300 text-white text-lg font-semibold ">

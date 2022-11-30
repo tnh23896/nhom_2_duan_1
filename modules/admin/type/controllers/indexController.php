@@ -1,20 +1,24 @@
 <?php
 
-function construct() {
+function construct()
+{
     request_auth();
     load_model('index');
 }
 
-function indexAction() {
+function indexAction()
+{
     $data['types'] = get_list_types();
     load_view('index', $data);
 }
 
-function createAction() {
+function createAction()
+{
     load_view('create');
 }
 
-function createPostAction() {
+function createPostAction()
+{
     $name = $_POST['name'];
     if (empty($name)) {
         push_notification('danger', ['Vui lòng nhập vào tên loại']);
@@ -24,13 +28,16 @@ function createPostAction() {
     create_types($name);
     push_notification('success', ['Tạo mới loại sản phẩm thành công']);
     header('Location: ?role=admin&mod=type');
+    die;
 }
 
-function deleteAction() {
+function deleteAction()
+{
     $id = $_GET['id_type'];
     delete_types($id);
     push_notification('success', ['Xoá loại sản phẩm thành công']);
     header('Location: ?role=admin&mod=type');
+    die;
 }
 
 function updateAction()
@@ -42,10 +49,12 @@ function updateAction()
         load_view('update', $data);
     } else {
         header('Location: ?role=admin&mod=type');
+        die;
     }
 }
 
-function updatePostAction() {
+function updatePostAction()
+{
     $id = $_GET['id_type'];
     $type = get_one_types($id);
     if (!$type) {
@@ -58,9 +67,11 @@ function updatePostAction() {
         push_notification('errors', [
             'name' => 'Vui lòng nhập vào tên loại'
         ]);
-        header('Location: ?role=admin&mod=types&action=update&id_type='.$id);
+        header('Location: ?role=admin&mod=types&action=update&id_type=' . $id);
+        die;
     }
     update_types($id, $name);
     push_notification('success', ['Chỉnh sửa loại sản phẩm thành công']);
     header('Location: ?role=admin&mod=type');
+    die;
 }

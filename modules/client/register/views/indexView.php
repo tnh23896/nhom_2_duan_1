@@ -1,9 +1,9 @@
 <?php get_header('', 'Đăng ký') ?>
-<main class="flex justify-center py-[50px]">
+<main class="flex justify-center py-[50px] px-10">
     <div class="w-full w-[500px] te">
         <?php foreach ($notifications as $notification) : ?>
             <?php foreach ($notification['msgs'] as $msg) : ?>
-                <span class="label label-lg text-<?php echo $notification['type'] ?>-500 label-inline mb-3"><?php echo $msg ?></span>
+                <div class="w-full text-center py-4 px-3 bg-<?php echo $notification['type'] ?>-500 text-white mb-3"><?php echo $msg ?></div>
             <?php endforeach; ?>
         <?php endforeach; ?>
         <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="POST">

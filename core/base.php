@@ -267,7 +267,15 @@ function get_login()
 function request_login($isLogin = true)
 {
     if (is_login() !== $isLogin) {
-        header("Location: " . ($isLogin ? '?mod=login' : '?mod=home'));
+
+        if ($isLogin) {
+            push_notification('red', ['Cần đăng nhập']);
+            header("Location: ?mod=login");
+        } else {
+            push_notification('red', ['Đã đăng nhập']);
+            header("Location: ?mod=home");
+        }
+
         die;
     }
 }

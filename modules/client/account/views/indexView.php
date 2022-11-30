@@ -1,5 +1,5 @@
 <?php get_header('', 'Đăng ký') ?>
-<main class="py-10">
+<main class="py-10 px-10">
     <form action="" method="POST" enctype="multipart/form-data">
         <div class="w-full h-[400px] flex justify-center ">
             <div class="m-auto grid grid-2 w-[90px]">
@@ -9,7 +9,7 @@
                 </div>
                 <?php foreach ($notifications as $notification) : ?>
                     <?php foreach ($notification['msgs'] as $msg) : ?>
-                        <span class="label label-lg text-<?php echo $notification['type'] ?>-500 label-inline mb-3"><?php echo $msg ?></span>
+                        <div class="w-full text-center py-4 px-3 bg-<?php echo $notification['type'] ?>-500 text-white mb-3"><?php echo $msg ?></div>
                     <?php endforeach; ?>
                 <?php endforeach; ?>
                 <div class="name py-[10px]">

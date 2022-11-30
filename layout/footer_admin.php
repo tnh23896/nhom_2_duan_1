@@ -32,8 +32,8 @@
 <div id="kt_quick_user" class="offcanvas offcanvas-right p-10">
     <!--begin::Header-->
     <div class="offcanvas-header d-flex align-items-center justify-content-between pb-5">
-        <h3 class="font-weight-bold m-0">User Profile
-            <small class="text-muted font-size-sm ml-2">12 messages</small>
+        <h3 class="font-weight-bold m-0">Hồ sơ
+            <small class="text-muted font-size-sm ml-2">0 tin nhắn</small>
         </h3>
         <a href="#" class="btn btn-xs btn-icon btn-light btn-hover-primary" id="kt_quick_user_close">
             <i class="ki ki-close icon-xs text-muted"></i>
@@ -67,7 +67,7 @@
                                     <!--end::Svg Icon-->
                                 </span>
                             </span>
-                            <span class="navi-text text-muted text-hover-primary">jm@softplus.com</span>
+                            <span class="navi-text text-muted text-hover-primary"><?= $user['email'] ?></span>
                         </span>
                     </a>
                     <a href="?role=admin&mod=auth&action=logout" class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">Đăng xuất</a>

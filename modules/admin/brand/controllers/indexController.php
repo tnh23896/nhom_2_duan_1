@@ -1,20 +1,24 @@
 <?php
 
-function construct() {
+function construct()
+{
     request_auth();
     load_model('index');
 }
 
-function indexAction() {
+function indexAction()
+{
     $data['brands'] = get_list_brands();
     load_view('index', $data);
 }
 
-function createAction() {
+function createAction()
+{
     load_view('create');
 }
 
-function createPostAction() {
+function createPostAction()
+{
     $name = $_POST['name'];
     $thumb = $_FILES['thumb'];
     $thumb_name = $_FILES['thumb']['name'];
@@ -23,17 +27,21 @@ function createPostAction() {
         header('Location: ?role=admin&mod=brand&action=create');
         die();
     }
-    create_brands($name , $thumb_name);
-    move_uploaded_file($thumb['tmp_name'], 'public/images/' . $thumb_name);
+    $t = time() . $thumb_name;
+    create_brands($name, $t);
+    move_uploaded_file($thumb['tmp_name'], 'public/images/' . $t);
     push_notification('success', ['Tạo mới danh mục sản phẩm thành công']);
     header('Location: ?role=admin&mod=brand');
+    die;
 }
 
-function deleteAction() {
+function deleteAction()
+{
     $id = $_GET['id_brand'];
     delete_brands($id);
     push_notification('success', ['Xoá danh mục sản phẩm thành công']);
     header('Location: ?role=admin&mod=brand');
+    die;
 }
 
 function updateAction()
@@ -45,31 +53,36 @@ function updateAction()
         load_view('update', $data);
     } else {
         header('Location: ?role=admin&mod=brand');
+        die;
     }
 }
 
-function updatePostAction() {
+function updatePostAction()
+{
     $id = $_GET['id_brand'];
     $band = get_one_brands($id);
     if (!$band) {
         header('Location: ?role=admin&mod=brand');
-        die();
+        die;
     }
     $name = $_POST['name'];
     $thumb = $_FILES['thumb'];
     $thumb_name = $_FILES['thumb']['name'];
     $previmg = $_POST['previmg'];
-    if($thumb_name == ""){
+    if ($thumb_name == "") {
         $thumb_name = $previmg;
     }
     if (empty($name)) {
         push_notification('errors', [
             'name' => 'Vui lòng nhập vào tên danh mục'
         ]);
-        header('Location: ?role=admin&mod=brand&action=update&id_band='.$id);
+        header('Location: ?role=admin&mod=brand&action=update&id_band=' . $id);
+        die;
     }
-    update_brands($id, $name , $thumb_name);
-    move_uploaded_file($thumb['tmp_name'], 'public/images/' . $thumb_name);
+    $t = time() . $thumb_name;
+    update_brands($id, $name, $t);
+    move_uploaded_file($thumb['tmp_name'], 'public/images/' . $t);
     push_notification('success', ['Chỉnh sửa danh mục sản phẩm thành công']);
     header('Location: ?role=admin&mod=brand');
+    die;
 }

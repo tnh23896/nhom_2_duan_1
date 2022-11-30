@@ -1,8 +1,8 @@
 <?php get_header('', 'Trang chủ') ?>
-<main class="">
+<main class="px-10">
     <?php foreach ($notifications as $notification) : ?>
         <?php foreach ($notification['msgs'] as $msg) : ?>
-            <span class="label label-lg text-<?php echo $notification['type'] ?>-500 label-inline mb-3"><?php echo $msg ?></span>
+            <div class="w-full text-center py-4 px-3 bg-<?php echo $notification['type'] ?>-500 text-white mb-3"><?php echo $msg ?></div>
         <?php endforeach; ?>
     <?php endforeach; ?>
     <section class="mb-[33px] ">
@@ -10,10 +10,10 @@
     </section>
     <section class="bg-[#F9F9F9] text-[15px] flex justify-center space-x-[75px] mb-[21px]">
         <?php foreach ($brands as $br) : ?>
-            <div class="mt-[10px] mb-[19px]">
-                <img src="public/images/<?= $br['image'] ?>" alt="">
+            <a href="?mod=product&brand_id=<?= $br['id'] ?>" class="mt-[10px] mb-[19px] text-center">
+                <img src="public/images/<?= $br['image'] ?>" class="w-[100px] h-[100px] object-contain" alt="">
                 <p class="text-center mt-[26px]"><?= $br['name'] ?></p>
-            </div>
+            </a>
         <?php endforeach; ?>
     </section>
     <section class="pb-[40px]">
@@ -42,11 +42,9 @@
                     <div>
                     </div>
                     <div class="mt-2.5">
-                        <div>Giá <?= $product['price'] ?></div>
+                        <div>Giá <?= currency_format($product['price']) ?></div>
                     </div>
-                    <div class="mt-2.5 break-words">
-                        <?= $product['description'] ?>
-                    </div>
+
                 </a>
             <?php endforeach ?>
 
