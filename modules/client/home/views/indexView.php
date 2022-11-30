@@ -17,7 +17,7 @@
                 <img src="public/images/thichsua.jpg" class="w-full">
             </div>
             <div class="mySlides fade">
-                <img src="public/images/banner3.png" class="w-full">
+                <img src="public/images/banner3.jpg" class="w-full">
             </div>
             <a class="prev" onclick="plusSlides(-1)">❮</a>
             <a class="next" onclick="plusSlides(1)">❯</a>
