@@ -21,6 +21,9 @@
                                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
                                         Tổng thành tiền
                                     </th>
+                                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
+                                        Trạng thái
+                                    </th>
                                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">
                                         Hành động
                                     </th>
@@ -39,7 +42,16 @@
                                             <?= $b['address'] ?>
                                         </td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
-                                            <?= $b['price_total'] ?>
+                                            <?= currency_format($b['price_total'])   ?>
+                                        </td>
+                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
+                                            <?php if ($b['status'] == 3) : ?>
+                                                <div class="bg-green-500 px-5 py-2 capitalize text-white">Giao hàng thành công</div>
+                                            <?php elseif ($b['status'] == 2) : ?>
+                                                <div class="bg-red-500 px-5 py-2 capitalize text-white">Giao hàng thất bại</div>
+                                            <?php else : ?>
+                                                <div class="bg-yellow-500 px-5 py-2 capitalize text-white">Hàng đang được giao</div>
+                                            <?php endif; ?>
                                         </td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                             <a href="?mod=bill&action=show&bill_id=<?= $b['id'] ?>">Xem chi tiết</a>

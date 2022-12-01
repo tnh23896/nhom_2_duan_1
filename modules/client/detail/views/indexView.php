@@ -93,7 +93,7 @@
                 <div class="flex justify-between items-center mb-2">
                     <div class="flex items-center">
                         <p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
-                            <img class="mr-2 w-6 h-6 rounded-full" src="public/images/<?= $user['image'] ?>" alt="Michael Gough"><?= $user['full_name'] ?>
+                            <img class="mr-2 w-6 h-6 rounded-full" src="public/images/<?= $user['image'] ?>" alt=""><?= $user['full_name'] ?>
                         </p>
                     </div>
 
@@ -115,7 +115,7 @@
                         <div class="flex justify-between items-center mb-2">
                             <div class="flex items-center">
                                 <p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
-                                    <img class="mr-2 w-6 h-6 rounded-full" src="public/images/<?= $comment['image'] ?>" alt="Michael Gough"><?= $comment['full_name'] ?>
+                                    <img class="mr-2 w-6 h-6 rounded-full" src="public/images/<?= $comment['image'] ?>" alt=""><?= $comment['full_name'] ?>
                                 </p>
                                 <p class="text-sm text-gray-600 dark:text-gray-400"><time pubdate datetime="" title=""><?= $comment['created_at'] ?></time></p>
                             </div>

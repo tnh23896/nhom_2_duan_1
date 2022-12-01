@@ -3,6 +3,7 @@
 function construct()
 {
     request_login();
+    load('helper', 'format');
     load_model('index');
 }
 

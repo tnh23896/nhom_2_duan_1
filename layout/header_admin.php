@@ -6,7 +6,7 @@
 <div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
 	<!--begin::Logo-->
 	<a href="index.html">
-		<img alt="Logo" src="assets/media/logos/logo-light.png" />
+		<img alt="Logo" style="width: 50px;height: 50px;" src="public/images/logo.png" />
 	</a>
 	<!--end::Logo-->
 	<!--begin::Toolbar-->
@@ -49,7 +49,7 @@
 			<div class="brand flex-column-auto" id="kt_brand">
 				<!--begin::Logo-->
 				<a href="index.html" class="brand-logo">
-					<img alt="Logo" src="assets/media/logos/logo-light.png" />
+					<img class="" style="width: 50px;height: 50px;" alt="Logo" src="public/images/logo.png" />
 				</a>
 				<!--end::Logo-->
 				<!--begin::Toggle-->

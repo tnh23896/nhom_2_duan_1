@@ -49,13 +49,13 @@
                       <?= $b['name'] ?>
                     </td>
                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
-                      <?= $b['price'] ?>
+                      <?= currency_format($b['price'])   ?>
                     </td>
                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
                       <?= $b['quantity'] ?>
                     </td>
                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
-                      <?= $b['price_total'] ?>
+                      <?= currency_format($b['price_total']) ?>
                     </td>
                   </tr>
                 <?php endforeach; ?>
