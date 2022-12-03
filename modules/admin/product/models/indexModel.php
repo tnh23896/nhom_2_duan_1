@@ -82,3 +82,8 @@ function update_type($id, $type_id, $prod_id)
     ], "id = $id");
     return true;
 }
+function delete_type($id)
+{
+    db_delete('type_products', "id = $id");
+    return true;
+}

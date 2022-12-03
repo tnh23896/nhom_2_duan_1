@@ -28,6 +28,7 @@ function update_status($id, $status)
     ], "id = $id");
     return true;
 }
+// update bills set status = 3 where id = 9
 function get_one_quantity_product($id)
 {
     $result = db_fetch_row("SELECT quantity FROM `products` WHERE `id` = '$id'");

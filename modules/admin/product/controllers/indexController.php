@@ -92,9 +92,6 @@ function updatePostAction()
     $thumb = $_FILES['thumb'];
     $thumb_name = $_FILES['thumb']['name'];
     $previmg_name = $_POST['previmg'];
-    if ($thumb['size'] <= 0) {
-        $thumb_name = $previmg_name;
-    }
     if (empty($title)) {
         push_notification('errors', [
             'title' => 'Vui lòng nhập vào tiêu đề sản phẩm'
@@ -103,7 +100,17 @@ function updatePostAction()
         die;
     }
     $t = time() . $thumb_name;
+    if ($thumb['size'] <= 0) {
+        $t = $previmg_name;
+    }
     update_product($id_pro, $title, $category_id, $description, $count, $price, $t, $brand_id);
+    $type_prev = get_one_types($id_pro);
+    foreach ($type_prev as $type) {
+        delete_type($type['id']);
+    }
+    foreach ($type_id as $types_id) {
+        create_type($types_id, $id_pro);
+    }
     move_uploaded_file($thumb['tmp_name'], 'public/images/' . $t);
     push_notification('success', ['Chỉnh sửa danh mục sản phẩm thành công']);
     header('Location: ?role=admin&mod=product');

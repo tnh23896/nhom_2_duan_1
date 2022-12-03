@@ -13,18 +13,17 @@ function indexAction()
         die;
     }
     $id = $_GET['id'];
-    $data['product'] = get_one_product($id);
+    $product = get_one_product($id);
+    increment_view($product['view'] + 1, $id);
     $data['types'] = get_types_by_product($id);
     $data['comments'] = get_list_comments_by_product_id($id);
-    $data['same_product'] = get_list_products_by_category($data['product']['category_id']);
+    $data['same_product'] = get_list_products_by_category($product['category_id']);
+    $data['product'] = $product;
     if (is_login()) {
         $data['user'] = get_login();
     }
     $data['notifications'] = get_notification();
     load_view('index', $data);
-    //     $num_page=celi($total_row,$num_per_page)
-    // • $total_row: Tổng số bản ghi
-    // • $num_per_page: số bản ghi mỗi trang $total_row $num_per_page 
 }
 function indexPostAction()
 {

@@ -32,3 +32,9 @@ function create_comment($desc, $user_id, $pro_id)
   ]);
   return $id;
 }
+function increment_view($view, $id_pro)
+{
+  db_update('products', [
+    'view' => $view,
+  ], "id =$id_pro");
+}
