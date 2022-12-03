@@ -19,6 +19,13 @@ function indexAction()
 function indexPostAction()
 {
     $qty = $_POST['quantity'];
+    foreach ($_SESSION['cart'] as $key => $item) {
+        if ($_SESSION['cart'][$key][2] < $qty[$key]) {
+            push_notification('red', ['Sửa không thành công']);
+            header("Location: ?mod=cart");
+            die;
+        }
+    }
     update_cart($qty);
     push_notification('green', ['Sửa thành công']);
     header("Location: ?mod=cart");

@@ -12,6 +12,7 @@ function indexAction()
     $data['products'] = get_list_products();
     $data['categories'] = get_list_categories();
     $data['brands'] = get_list_brands();
+    $data['banner_pro'] = get_top_3_pro();
     // ---------------------
     $row = get_count_pro();
 

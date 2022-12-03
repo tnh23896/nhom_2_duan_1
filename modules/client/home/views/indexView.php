@@ -75,33 +75,18 @@
 </main>
 <script type='text/javascript'>
     <?php
-    $php_array = $result;
+    $php_array = $banner_pro;
     ?>
     var js_array = <?php echo json_encode($php_array) ?>;
     var slider = document.querySelector('.slider');
-    // js_array.forEach((item, key) => {
-    //     slide(key);
-    // })
-
-
-    // var i = 0
-    // var max = 
-    // setInterval(function() {
-    //     console.log(i);
-    //     i++
-    //     if (i > max) {
-    //         i = 0
-    //     }
-    // }, 2000)
+    // console.log(js_array);
     var i = 0,
         max = js_array.length,
         timer = function() {
             if (i < max) {
                 i++;
-                // console.log(i - 1) //ok
-                // slider.innerHTML = js_array[i - 1]['id'];
                 slider.innerHTML = `<a class="block mx-auto" href="?mod=detail&id=${js_array[i - 1]['id']}">
-                <img class="w-full h-[500px] object-cover" src="public/images/${js_array[i - 1]['images']}" alt="">
+                <img class="w-full h-[500px] object-contain" src="public/images/${js_array[i - 1]['images']}" alt="">
                 </a>`
             }
             if (i >= max) {
@@ -109,7 +94,7 @@
                 // console.log(i - 1) //fail ...
             }
 
-            setTimeout(timer, 5000);
+            setTimeout(timer, 3000);
         };
 
     timer();

@@ -42,3 +42,9 @@ function get_limit_pro($start, $limit)
     $result = db_fetch_array("SELECT * FROM products LIMIT $start, $limit");
     return $result;
 }
+function get_top_3_pro()
+{
+    $result = db_fetch_array("SELECT * FROM products ORDER BY view DESC LIMIT 0,3");
+    return $result;
+}
+// 

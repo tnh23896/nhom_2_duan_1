@@ -11,7 +11,6 @@ function create_user($full_name,$phone,$email,$pass) {
 }
 
 function get_list_users(){
-        $result = db_fetch_array("SELECT * FROM `users` where role = 1 ");
+        $result = db_fetch_array("SELECT * FROM `users`");
         return $result;
 }
-?>
