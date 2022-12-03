@@ -64,10 +64,10 @@ function updatePostAction()
     $name = $_POST['name'];
     $description = $_POST['description'];
     if (empty($name)) {
-        push_notification('errors', [
+        push_notification('danger', [
             'name' => 'Vui lòng nhập vào tên loại'
         ]);
-        header('Location: ?role=admin&mod=types&action=update&id_type=' . $id);
+        header('Location: ?role=admin&mod=type&action=update&id_type=' . $id);
         die;
     }
     update_types($id, $name);

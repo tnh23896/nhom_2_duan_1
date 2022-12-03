@@ -1,30 +1,32 @@
 <?php
-function get_list_categories() {
-    $result = db_fetch_array("SELECT * FROM `categories`");
+function get_list_vouchers() {
+    $result = db_fetch_array("SELECT * FROM voucher");
     return $result;
 }
 
-function get_one_category($id) {
-    $result = db_fetch_row("SELECT * FROM `categories` WHERE `id` = '$id'");
+function get_one_voucher($id) {
+    $result = db_fetch_row("SELECT * FROM voucher WHERE  id = $id");
     return $result;
 }
 
-function create_category($name) {
+function create_voucher($discount, $due) {
     $user = get_auth();
-    $id = db_insert('categories', [
-        'name' => $name,
+    $id = db_insert('voucher', [
+        'discount' => $discount,
+        'due' => $due,
     ]);
     return $id;
 }
 
-function update_category($id, $name) {
-    db_update('categories', [
-        'name' => $name,
+function update_voucher($id, $discount, $due) {
+    db_update('voucher', [
+        'discount' => $discount,
+        'due' => $due,
     ], "id = $id");
     return true;
 }
 
-function delete_category($id) {
-    db_delete('categories', "id = $id");
+function delete_voucher($id) {
+    db_delete('voucher', "id = $id");
     return true;
 }

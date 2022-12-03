@@ -22,15 +22,15 @@ function createPostAction()
     $name = $_POST['name'];
     $thumb = $_FILES['thumb'];
     $thumb_name = $_FILES['thumb']['name'];
-    if (empty($name)) {
-        push_notification('danger', ['Vui lòng nhập vào tên danh mục']);
+    if (empty($name) || $thumb['size'] <= 0) {
+        push_notification('danger', ['Vui lòng thêm đủ thông tin']);
         header('Location: ?role=admin&mod=brand&action=create');
         die();
     }
     $t = time() . $thumb_name;
     create_brands($name, $t);
     move_uploaded_file($thumb['tmp_name'], 'public/images/' . $t);
-    push_notification('success', ['Tạo mới danh mục sản phẩm thành công']);
+    push_notification('success', ['Tạo mới Hãng sản phẩm thành công']);
     header('Location: ?role=admin&mod=brand');
     die;
 }
@@ -39,7 +39,7 @@ function deleteAction()
 {
     $id = $_GET['id_brand'];
     delete_brands($id);
-    push_notification('success', ['Xoá danh mục sản phẩm thành công']);
+    push_notification('success', ['Xoá Hãng sản phẩm thành công']);
     header('Location: ?role=admin&mod=brand');
     die;
 }
@@ -69,20 +69,21 @@ function updatePostAction()
     $thumb = $_FILES['thumb'];
     $thumb_name = $_FILES['thumb']['name'];
     $previmg = $_POST['previmg'];
-    if ($thumb_name == "") {
-        $thumb_name = $previmg;
+    $t = time() . $thumb_name;
+    if ($thumb['size'] <=0 ) {
+        $t = $previmg;
     }
     if (empty($name)) {
-        push_notification('errors', [
-            'name' => 'Vui lòng nhập vào tên danh mục'
+        push_notification('danger', [
+            'Vui lòng nhập vào tên Hãng'
         ]);
-        header('Location: ?role=admin&mod=brand&action=update&id_band=' . $id);
+        header('Location: ?role=admin&mod=brand&action=update&id_brand=' . $id);
         die;
     }
-    $t = time() . $thumb_name;
+    
     update_brands($id, $name, $t);
     move_uploaded_file($thumb['tmp_name'], 'public/images/' . $t);
-    push_notification('success', ['Chỉnh sửa danh mục sản phẩm thành công']);
+    push_notification('success', ['Chỉnh sửa Hãng sản phẩm thành công']);
     header('Location: ?role=admin&mod=brand');
     die;
 }

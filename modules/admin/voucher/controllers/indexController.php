@@ -8,7 +8,7 @@ function construct()
 
 function indexAction()
 {
-    $data['categories'] = get_list_categories();
+    $data['vouchers'] = get_list_vouchers();
     load_view('index', $data);
 }
 
@@ -19,61 +19,58 @@ function createAction()
 
 function createPostAction()
 {
-    $name = $_POST['name'];
-    $image = $_FILES['image'];
-    $image_name = $_FILES['image']['name'];
-    if (empty($name)) {
-        push_notification('danger', ['Vui lòng nhập vào tên danh mục']);
-        header('Location: ?role=admin&mod=category&action=create');
+    $discount = $_POST['discount'];
+    $due = $_POST['due'];
+    if (empty($discount) || empty($due)) {
+        push_notification('danger', ['Vui lòng nhập vào tên loại']);
+        header('Location: ?role=admin&mod=voucher&action=create');
         die();
     }
-    create_category($name, $image_name);
-    push_notification('success', ['Tạo mới danh mục sản phẩm thành công']);
-    header('Location: ?role=admin&mod=category');
+    create_voucher($discount, $due);
+    push_notification('success', ['Tạo mới loại sản phẩm thành công']);
+    header('Location: ?role=admin&mod=voucher');
     die;
 }
 
 function deleteAction()
 {
-    $id = $_GET['id_cate'];
-    delete_category($id);
-    push_notification('success', ['Xoá danh mục sản phẩm thành công']);
-    header('Location: ?role=admin&mod=category');
+    $id = $_GET['id_voucher'];
+    delete_voucher($id);
+    push_notification('success', ['Xoá loại sản phẩm thành công']);
+    header('Location: ?role=admin&mod=voucher');
     die;
 }
 
 function updateAction()
 {
-    $id = $_GET['id_cate'];
-    $cate = get_one_category($id);
-    $data['category'] = $cate;
-    if ($cate) {
+    $id = $_GET['id_voucher'];
+    $voucher = get_one_voucher($id);
+    $data['voucher'] = $voucher;
+    if ($voucher) {
         load_view('update', $data);
     } else {
-        header('Location: ?role=admin&mod=category');
+        header('Location: ?role=admin&mod=voucher');
         die;
     }
 }
 
 function updatePostAction()
 {
-    $id = $_GET['id_cate'];
-    $cate = get_one_category($id);
-    if (!$cate) {
-        header('Location: ?role=admin&mod=category');
+    $id = $_GET['id_voucher'];
+    $voucher = get_one_voucher($id);
+    if (!$voucher) {
+        header("Location: ?role=admin&mod=voucher&id_voucher=$id");
         die();
     }
-    $name = $_POST['name'];
-    $description = $_POST['description'];
-    if (empty($name)) {
-        push_notification('errors', [
-            'name' => 'Vui lòng nhập vào tên danh mục'
-        ]);
-        header('Location: ?role=admin&mod=category&action=update&id_cate=' . $id);
-        die;
+    $discount = $_POST['discount'];
+    $due = $_POST['due'];
+    if (empty($discount) || empty($due)) {
+        push_notification('danger', ['Vui lòng nhập vào tên loại']);
+        header("Location: ?role=admin&mod=voucher&action=update&id_voucher=$id");
+        die();
     }
-    update_category($id, $name, $description);
-    push_notification('success', ['Chỉnh sửa danh mục sản phẩm thành công']);
-    header('Location: ?role=admin&mod=category');
+    update_voucher($id, $discount, $due);
+    push_notification('success', ['Chỉnh sửa loại sản phẩm thành công']);
+    header('Location: ?role=admin&mod=voucher');
     die;
 }

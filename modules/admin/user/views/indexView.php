@@ -1,4 +1,4 @@
-<?php get_header('', 'Bình luận') ?>
+<?php get_header('', 'thành viên') ?>
 
     <!--begin::Subheader-->
     <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
@@ -6,7 +6,7 @@
             <!--begin::Info-->
             <div class="d-flex align-items-center flex-wrap mr-2">
                 <!--begin::Page Title-->
-                <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Quản lý bình luận</h5>
+                <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Quản lý thành viên</h5>
                 <!--end::Page Title-->
             </div>
             <!--end::Info-->
@@ -22,8 +22,8 @@
             <div class="card card-custom">
                 <div class="card-header flex-wrap border-0 pt-6 pb-0">
                     <div class="card-title">
-                        <h3 class="card-label">Danh sách bình luận
-                            <span class="d-block text-muted pt-2 font-size-sm">Danh sách các bình luận có trên hệ thống</span>
+                        <h3 class="card-label">Danh sách thành viên
+                            <span class="d-block text-muted pt-2 font-size-sm">Danh sách các thành viên có trên hệ thống</span>
                         </h3>
                     </div>
                 </div>
@@ -50,23 +50,23 @@
                     <table class="datatable datatable-bordered datatable-head-custom" id="kt_datatable">
                         <thead>
                             <tr>
-                                <th title="Field #1">ID bình luận</th>
+                                <th title="Field #1">ID</th>
                                 <th title="Field #2">Tên</th>
-                                <th title="Field #2">Hình ảnh</th>
-                                <th title="Field #2">Nội dung</th>
-                                <th title="Field #2">Tên sản phẩm</th>
-                                <th title="Field #5">Hành động</th>
+                                <th title="Field #2">Ảnh</th>
+                                <th title="Field #2">Email</th>
+                                <th title="Field #2">Số điện thoại</th>
+                                <th title="Field #2">Quyền</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($comments as $comment) : ?>
+                            <?php foreach ($list_users as $list) : ?>
                                 <tr>
-                                    <td><?php echo ($comment['id']) ?></td>
-                                    <td><?php echo ($comment['full_name']) ?></td>
-                                    <td><img src="public/images/<?php echo ($comment['image']) ?>" alt="" class="w-25 rounded-full"></td>
-                                    <td><?php echo ($comment['description']) ?></td>
-                                    <td><?php echo ($comment['title']) ?></td>
-                                    <td><a href="?role=admin&mod=comment&action=delete&id_comment=<?php echo $comment['id'] ?>">Xóa bình luận</a></td>
+                                    <td><?php echo ($list['id']) ?></td>
+                                    <td><?php echo ($list['full_name']) ?></td>
+                                    <td><?php echo ($list['image']) ?></td>
+                                    <td><?php echo ($list['email']) ?></td>
+                                    <td><?php echo ($list['phone']) ?></td>
+                                    <td><?php echo ($list['role'] == 1?'Thành viên':'Quản tri viên') ?></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>

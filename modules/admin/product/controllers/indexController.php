@@ -32,8 +32,8 @@ function createPostAction()
     $brand_id = $_POST['brand_id'];
     $thumb = $_FILES['thumb'];
     $thumb_name = $_FILES['thumb']['name'];
-    if (empty($title)) {
-        push_notification('danger', ['Vui lòng nhập vào tên danh mục']);
+    if (empty($title) || empty($description)|| empty($count) || empty($price)|| empty($type_id) || empty($brand_id) || $thumb['size'] <=0 ) {
+        push_notification('danger', ['Vui lòng Thêm đủ thông tin']);
         header('Location: ?role=admin&mod=product&action=create');
         die();
     }
