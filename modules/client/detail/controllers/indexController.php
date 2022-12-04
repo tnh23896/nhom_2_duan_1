@@ -17,6 +17,7 @@ function indexAction()
     increment_view($product['view'] + 1, $id);
     $data['types'] = get_types_by_product($id);
     $data['comments'] = get_list_comments_by_product_id($id);
+
     $data['same_product'] = get_list_products_by_category($product['category_id']);
     $data['product'] = $product;
     if (is_login()) {

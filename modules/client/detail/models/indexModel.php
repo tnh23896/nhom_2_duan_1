@@ -38,3 +38,8 @@ function increment_view($view, $id_pro)
     'view' => $view,
   ], "id =$id_pro");
 }
+function get_count_pro_by_cate_id($cate_id)
+{
+  $result = db_fetch_row("select count(id) as total from products where category_id = $cate_id");
+  return  $result;
+}
