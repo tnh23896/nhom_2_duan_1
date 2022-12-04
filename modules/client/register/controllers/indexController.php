@@ -20,6 +20,11 @@ function indexPostAction()
     $email = $_POST['email'];
     $pass = $_POST['pass'];
     $re_pass = $_POST['re_pass'];
+    if (empty($full_name) || empty($phone) || empty($email) || empty($pass) || empty($re_pass)) {
+        push_notification('red', ['Vui lòng nhập đầy đủ thông tin']);
+        header('Location: ?mod=register');
+        die;
+    }
     $users = get_list_users();
     foreach ($users as $user) {
         if ($email == $user['email']) {

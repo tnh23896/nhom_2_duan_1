@@ -17,11 +17,9 @@
         <?php endforeach; ?>
     </section>
     <section class="pb-[40px]">
-        <div class="bg-[#004031] rounded-[5px] mx-[10px] h-[40px] mb-[40px]">
-            <p class="text-center italic font-bold text-[14px] text-white pt-[10px]">Danh mục</p>
-        </div>
-        <div class="border-b-gray-400 border-b-[3px] border-solid  ">
-            <ul class="text-[20px] flex justify-center space-x-[50px]  pb-[20px]">
+        <div  class="border-b-gray-400 border-b-[3px]  border-solid "></div>
+        <div class="border-b-gray-400 border-b-[3px]  border-solid  ">
+            <ul class="text-[20px] flex justify-center space-x-[50px] pt-[20px] pb-[20px]">
                 <?php foreach ($categories as $category) : ?>
                     <li><a href="?mod=product&cate_id=<?= $category['id'] ?>" class="hover:text-red-600"><?= $category['name'] ?></a></li>
                 <?php endforeach; ?>

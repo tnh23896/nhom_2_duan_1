@@ -14,7 +14,7 @@ function indexAction()
         $row = get_count_pro_by_cate_id($cate_id);
         $total_records = $row['total'];
         $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-        $limit = 5;
+        $limit = 10;
         // tổng số trang
         $total_page = ceil($total_records / $limit);
         // Giới hạn current_page trong khoảng 1 đến total_page
@@ -37,7 +37,7 @@ function indexAction()
         $row = get_count_pro_by_brand_id($brand_id);
         $total_records = $row['total'];
         $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-        $limit = 5;
+        $limit = 10;
         // tổng số trang
         $total_page = ceil($total_records / $limit);
         // Giới hạn current_page trong khoảng 1 đến total_page
@@ -61,7 +61,7 @@ function indexAction()
         $row = get_count_pro_by_value($value);
         $total_records = $row['total'];
         $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-        $limit = 3;
+        $limit = 10;
         // tổng số trang
         $total_page = ceil($total_records / $limit);
         // Giới hạn current_page trong khoảng 1 đến total_page

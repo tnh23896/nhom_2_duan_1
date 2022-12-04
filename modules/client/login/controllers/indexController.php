@@ -29,7 +29,7 @@ function indexPostAction()
     if ($login) {
         push_login($login);
         header('Location: ?mod=home');
-    } else {
+    }else {
         push_notification('red', ['Tài khoản hoặc mật khẩu không chính xác']);
         header('Location: ?role=client&mod=login');
     }

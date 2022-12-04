@@ -27,6 +27,7 @@ function indexPostAction()
     if (empty($full_name) || empty($phone)) {
         push_notification('red', ['Vui lòng nhập đầy đủ thông tin !!']);
         header('Location: ?role=client&mod=account');
+        die;
     }
     update_user($user['id'], $full_name, $email, $phone, $image_name);
     move_uploaded_file($image['tmp_name'], 'public/images/' . $image_name);

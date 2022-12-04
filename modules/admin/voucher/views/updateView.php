@@ -1,4 +1,4 @@
-<?php get_header('', 'Chỉnh sửa loại sản phẩm') ?>
+<?php get_header('', 'Chỉnh sửa loại Giảm giá') ?>
 
     <!--begin::Subheader-->
     <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
@@ -6,7 +6,7 @@
             <!--begin::Info-->
             <div class="d-flex align-items-center flex-wrap mr-2">
                 <!--begin::Page Title-->
-                <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Chỉnh sửa loại sản phẩm</h5>
+                <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Chỉnh sửa loại Giảm giá</h5>
                 <!--end::Page Title-->
             </div>
             <!--end::Info-->
@@ -21,7 +21,7 @@
             <!--begin::Card-->
             <div class="card card-custom gutter-b example example-compact">
                 <div class="card-header">
-                    <h3 class="card-title">Form thông tin loại sản phẩm mới</h3>
+                    <h3 class="card-title">Form thông tin loại Giảm giá mới</h3>
                 </div>
                 <!--begin::Form-->
                 <form method="POST" action="">

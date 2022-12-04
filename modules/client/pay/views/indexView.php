@@ -6,11 +6,6 @@
                 <h1 class="font-semibold text-2xl">Thanh toán</h1>
                 <h2 class="font-semibold text-2xl"><?= count($products) ?> Sản phẩm</h2>
             </div>
-            <?php foreach ($notifications as $notification) : ?>
-                <?php foreach ($notification['msgs'] as $msg) : ?>
-                    <div class="w-full text-center py-4 px-3 bg-<?php echo $notification['type'] ?>-500 text-white mb-3"><?php echo $msg ?></div>
-                <?php endforeach; ?>
-            <?php endforeach; ?>
             <div class="flex mt-10 mb-5">
                 <h3 class="font-semibold text-gray-600 text-xs uppercase w-2/5">Chi tiết sản phẩm</h3>
                 <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Số lượng</h3>

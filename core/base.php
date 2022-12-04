@@ -244,6 +244,8 @@ function request_auth($isLogin = true)
         die;
     }
 }
+
+
 function push_login($user)
 {
     $_SESSION["login"] = $user;

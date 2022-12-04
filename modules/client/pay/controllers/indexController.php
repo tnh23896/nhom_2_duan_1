@@ -27,7 +27,7 @@ function indexPostAction()
     $carts = get_ss('cart');
 
     if (empty($name) || empty($phone) || empty($address)) {
-        push_notification('red', ['Thiếu rồi']);
+        push_notification('red', ['Vui lòng nhập đủ thông tin']);
         header('Location: ?role=client&mod=pay');
         die;
     }
@@ -42,7 +42,7 @@ function indexPostAction()
         $price = $cart[3];
         create_bill_detail($id_products, $id_bill, $quantity, $price_total, $price);
     }
-    push_notification('green', ['Thanh toán thành công']);
+    push_notification('green', ['Đặt hàng thành công']);
     $_SESSION['cart'] = [];
     header('Location: ?role=client&mod=bill');
     die;
