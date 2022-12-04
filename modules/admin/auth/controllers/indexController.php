@@ -1,10 +1,12 @@
 <?php
-
-function construct() {
+// ở router.php. core/router.php
+function construct()
+{
     load_model('index');
 }
 
-function indexAction() {
+function indexAction()
+{
     request_auth(false);
     $notifications = get_notification();
     load_view('index', [
@@ -12,7 +14,8 @@ function indexAction() {
     ]);
 }
 
-function indexPostAction() {
+function indexPostAction()
+{
     request_auth(false);
     // validation
     $username = $_POST['username'];
@@ -32,7 +35,8 @@ function indexPostAction() {
     }
 }
 
-function logoutAction() {
+function logoutAction()
+{
     request_auth();
     remove_auth();
     header("Location: ?role=admin&mod=auth");
