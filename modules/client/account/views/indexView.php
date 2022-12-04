@@ -28,7 +28,7 @@
                     <div>
                         <label class="text-[15px] text-[#414141]">Số điện thoại</label>
                     </div>
-                    <input class="w-[300px] h-[44px] border pl-[10px] rounded-[5px]" type="text" name="phone" value="<?= $user['phone'] ?>" id="" placeholder="Số điện thoại">
+                    <input class="w-[300px] h-[44px] border pl-[10px] rounded-[5px]" type="number" name="phone" value="<?= $user['phone'] ?>" id="" placeholder="Số điện thoại">
                 </div>
             </div>
             <div class="image m-auto">

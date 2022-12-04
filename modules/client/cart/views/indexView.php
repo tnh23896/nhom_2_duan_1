@@ -61,12 +61,6 @@
                 <span class="font-semibold text-sm uppercase"><?= count($products) ?> sản phẩm</span>
                 <span class="font-semibold text-sm"><?= currency_format($price_total) ?></span>
             </div>
-            <div>
-                <label class="font-medium inline-block mb-3 text-sm uppercase">Mua sắm</label>
-                <select class="block p-2 text-gray-600 w-full text-sm">
-                    <option>Phí giao hàng - 30.000</option>
-                </select>
-            </div>
             <div class="py-10">
                 <label for="promo" class="font-semibold inline-block mb-3 text-sm uppercase">Mã Voucher</label>
                 <input type="text" id="promo" placeholder="Nhập voucher..." class="p-2 text-sm w-full">

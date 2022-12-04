@@ -1,6 +1,7 @@
 <?php if (is_login()) {
     $user = get_login();
 };
+
 ?>
 
 <!DOCTYPE html>
@@ -49,9 +50,10 @@
                         <img src="public/images/login.png" alt="">
                         <div class="pl-[10px]">
                             <div>
-                            <a href="http://localhost/nhom_2_du_an_1/?role=admin&mod=auth" class="font-['Roboto Serif'] block underline text-[#414141] hover:text-blue-500">Đăng nhập Admin</a>
-
                                 <a href="http://localhost/nhom_2_du_an_1/?mod=login" class="font-['Roboto Serif']  underline text-[#414141] hover:text-blue-500">Đăng nhập</a>
+                            </div>
+                            <div>
+                            <a href="http://localhost/nhom_2_du_an_1/?role=admin&mod=auth" class="font-['Roboto Serif']  underline text-[#414141] hover:text-blue-500">Đăng nhập admin</a>
                             </div>
                             <a href="http://localhost/nhom_2_du_an_1/?mod=register" class="text-[#414141] underline hover:text-blue-500">Đăng kí</a>
                         </div>
@@ -72,6 +74,7 @@
                     <?php if (!is_login()) : ?>
                         <li class="text-[#ffffff]"><a href="?mod=login">Đăng nhập</a></li>
                         <li class="text-[#ffffff]"><a href="?mod=register">Đăng ký</a></li>
+                        
                     <?php endif ?>
                     <li class="text-[#ffffff]"><a href="?mod=cart">Giỏ hàng</a></li>
                     <li class="text-[#ffffff]"><a href="?mod=bill">Hoá đơn</a></li>

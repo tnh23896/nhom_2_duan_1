@@ -11,6 +11,7 @@ function indexAction()
 {
     $user = get_login();
     $user_id = $user['id'];
+    $data['notifications'] = get_notification();
     $data['bills'] = get_bill_by_userId($user_id);
 
     load_view('index', $data);

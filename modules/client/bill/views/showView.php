@@ -1,7 +1,7 @@
 <?php get_header('', 'Hoá đơn của bạn') ?>
 <main class="flex justify-center py-[50px] px-10">
   <div class="bg-white mb-[30px] p-5">
-    <h2 class="my-[30px] text-[40px] font-bold text-center">Hóa Đơn</h2>
+    <h2 class="my-[30px] text-[40px] font-bold text-center">Chi Tiết Hóa Đơn</h2>
     <div class="flex flex-col">
       <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class=" inline-block min-w-full sm:px-6 lg:px-8">

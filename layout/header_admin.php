@@ -48,7 +48,7 @@
 			<!--begin::Brand-->
 			<div class="brand flex-column-auto" id="kt_brand">
 				<!--begin::Logo-->
-				<a href="index.html" class="brand-logo">
+				<a href="?role=admin" class="brand-logo">
 					<img class="" style="width: 50px;height: 50px;" alt="Logo" src="public/images/logo.png" />
 				</a>
 				<!--end::Logo-->
@@ -252,7 +252,7 @@
 									</a>
 								</li>
 								<li class="menu-item menu-item-submenu" data-menu-toggle="click" aria-haspopup="true">
-									<a href="javascript:;" class="menu-link menu-toggle">
+									<a href="?mod=home" class="menu-link">
 										<span class="menu-text">Trang khách hàng</span>
 										<i class="menu-arrow"></i>
 									</a>

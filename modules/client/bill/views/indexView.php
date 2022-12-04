@@ -2,6 +2,11 @@
 <main class="flex justify-center py-[50px] px-10">
     <div class="bg-white mb-[30px] p-5">
         <h2 class="my-[30px] text-[40px] font-bold text-center">Hóa Đơn</h2>
+        <?php foreach ($notifications as $notification) : ?>
+                <?php foreach ($notification['msgs'] as $msg) : ?>
+                    <div class="w-full text-center py-4 px-3 bg-<?php echo $notification['type'] ?>-500 text-white mb-3"><?php echo $msg ?></div>
+                <?php endforeach; ?>
+            <?php endforeach; ?>
         <div class="flex flex-col">
             <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class=" inline-block min-w-full sm:px-6 lg:px-8">

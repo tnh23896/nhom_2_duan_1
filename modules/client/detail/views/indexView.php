@@ -43,8 +43,6 @@
                         <button type="button" onClick='increaseCount(event, this)' class="rounded-r-lg outline-none border-solid border-black w-[23px]"><span class="up">+</span></button>
                     </div>
                     <div class="flex">
-                        <button class="font-bold text-[15px] bg-[#FF5722] text-white w-[174px] h-[56px] text-center rounded-[7px] mr-[15px]">MUA
-                            NGAY</button>
                         <button name="add_cart" class="bg-orange-200 border-[#FF5722] border-solid rounded-[7px] w-[259px] h-[56px] flex text-[15px]">
                             <img src="public/images/cart2.png" alt="" class="mt-[18px] ml-[30px] mr-[13px]">
                             <p class="text-[#FF5722] mt-[17px]">THÊM VÀO GIỎ HÀNG</p>

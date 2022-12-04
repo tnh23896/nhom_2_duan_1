@@ -18,7 +18,7 @@ function indexAction()
 
     $total_records = $row['total'];
     $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-    $limit = 5;
+    $limit = 10;
 
     // BƯỚC 4: TÍNH TOÁN TOTAL_PAGE VÀ START
     // tổng số trang
