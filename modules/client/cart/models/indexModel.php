@@ -9,6 +9,6 @@ function update_cart($qty)
 }
 function get_qty_product($id)
 {
-  $result = db_fetch_row("SELECT quantity FROM products id = $id");
+  $result = db_fetch_row("SELECT quantity FROM products where id = $id");
   return $result;
 }

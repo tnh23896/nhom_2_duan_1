@@ -21,7 +21,7 @@ function indexPostAction()
     $qty = $_POST['quantity'];
     foreach ($_SESSION['cart'] as $key => $item) {
         $id_pro = get_qty_product($_SESSION['cart'][$key][9]);
-        if ($id_pro['id'] < $qty[$key]) {
+        if ($id_pro['quantity'] < $qty[$key]) {
             push_notification('red', ['Số lượng vượt quá giới hạn trong kho']);
             header("Location: ?mod=cart");
             die;
