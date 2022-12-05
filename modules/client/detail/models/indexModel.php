@@ -43,3 +43,8 @@ function get_count_pro_by_cate_id($cate_id)
   $result = db_fetch_row("select count(id) as total from products where category_id = $cate_id");
   return  $result;
 }
+function get_qty_product($id)
+{
+  $result = db_fetch_row("SELECT quantity FROM products where id = $id");
+  return $result;
+}

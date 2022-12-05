@@ -64,6 +64,12 @@ function indexPostAction()
         $type_id = $type_ar[0];
         $type_name = $type_ar[1];
         $total_price = $price * $quantity;
+        $quantity_pro = get_qty_product($id_pro);
+        if ($quantity_pro['quantity'] < $quantity) {
+            push_notification('red', ['Vượt quá số lượng trong kho']);
+            header("Location: ?mod=detail&id=$id_pro");
+            die;
+        }
         if (!is_ss('cart')) {
             push_ss('cart', []);
         }
