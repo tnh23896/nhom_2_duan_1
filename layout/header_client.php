@@ -1,9 +1,7 @@
 <?php if (is_login()) {
     $user = get_login();
 };
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,6 +42,10 @@
                             <div>
                                 <a href="?mod=account" class="font-['Roboto Serif'] btn btn-sm btn-light-primary font-weight-bolder py-2  uppercase text-green-500 "><?php echo $user['full_name'] ?></a>
                             </div>
+                            <div>
+                            <!-- <a href="?role=client&mod=login&action=logout" class="btn btn-sm btn-light-primary font-weight-bolder py-2  text-red-400 underline">Link vaof</a> -->
+
+                            </div>
                             <a href="?role=client&mod=login&action=logout" class="btn btn-sm btn-light-primary font-weight-bolder py-2  text-red-400 underline">Đăng xuất</a>
                         </div>
                     <?php else : ?>
@@ -53,7 +55,7 @@
                                 <a href="http://localhost/nhom_2_du_an_1/?mod=login" class="font-['Roboto Serif']  underline text-[#414141] hover:text-blue-500">Đăng nhập</a>
                             </div>
                             <div>
-                            <a href="http://localhost/nhom_2_du_an_1/?role=admin&mod=auth" class="font-['Roboto Serif']  underline text-[#414141] hover:text-blue-500">Đăng nhập admin</a>
+                            <!-- <a href="http://localhost/nhom_2_du_an_1/?role=admin&mod=auth" class="font-['Roboto Serif']  underline text-[#414141] hover:text-blue-500">Đăng nhập admin</a> -->
                             </div>
                             <a href="http://localhost/nhom_2_du_an_1/?mod=register" class="text-[#414141] underline hover:text-blue-500">Đăng kí</a>
                         </div>

@@ -29,14 +29,15 @@ function update_status($id, $status)
     return true;
 }
 // update bills set status = 3 where id = 9
-function get_one_quantity_product($id)
+function get_one_product($id)
 {
-    $result = db_fetch_row("SELECT quantity FROM `products` WHERE `id` = '$id'");
+    $result = db_fetch_row("SELECT * FROM `products` WHERE `id` = '$id'");
     return $result;
 }
-function update_quantity_pro($id, $quantity)
+function update_quantity_sold_pro($id, $quantity,$sold)
 {
     db_update('products', [
         'quantity' =>  $quantity,
+        'sold' =>  $sold,
     ], "id=$id");
 }

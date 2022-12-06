@@ -28,9 +28,9 @@ function indexAction()
 }
 function indexPostAction()
 {
-    request_login(is_login());
     $id_pro = $_GET['id'];
     if (isset($_POST['up_comment'])) {
+        request_login(true);
         $desc = $_POST['desc'];
         if (is_login()) {
             $user = get_login();

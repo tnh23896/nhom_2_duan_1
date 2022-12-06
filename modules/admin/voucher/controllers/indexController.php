@@ -65,12 +65,12 @@ function updatePostAction()
     $discount = $_POST['discount'];
     $due = $_POST['due'];
     if (empty($discount) || empty($due)) {
-        push_notification('danger', ['Vui lòng nhập vào tên loại']);
+        push_notification('danger', ['Vui lòng nhập vào voucher']);
         header("Location: ?role=admin&mod=voucher&action=update&id_voucher=$id");
         die();
     }
     update_voucher($id, $discount, $due);
-    push_notification('success', ['Chỉnh sửa loại sản phẩm thành công']);
+    push_notification('success', ['Chỉnh sửa voucher thành công']);
     header('Location: ?role=admin&mod=voucher');
     die;
 }

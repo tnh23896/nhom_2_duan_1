@@ -269,7 +269,7 @@ function get_login()
 function request_login($isLogin = true)
 {
     if (is_login() !== $isLogin) {
-
+        
         if ($isLogin) {
             push_notification('red', ['Cần đăng nhập']);
             header("Location: ?mod=login");

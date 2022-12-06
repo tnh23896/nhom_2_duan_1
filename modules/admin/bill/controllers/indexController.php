@@ -25,9 +25,11 @@ function indexPostAction()
     if ($status == 3) {
         $list = get_list_bills_detail($bill_id);
         foreach ($list as $row) {
-            $product = get_one_quantity_product($row['id_products']);
+            $product = get_one_product($row['id_products']);
             $product['quantity'] -= $row['quantity'];
-            update_quantity_pro($row['id_products'], $product['quantity']);
+            $product['sold'] += $row['quantity'];
+
+            update_quantity_sold_pro($row['id_products'], $product['quantity'],$product['sold']);
         }
     }
     update_status($bill_id, $status);

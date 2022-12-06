@@ -15,6 +15,9 @@
                             <thead class="border-b">
                                 <tr>
                                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
+                                        Thời gian đặt hàng
+                                    </th>
+                                    <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
                                         Tên người mua
                                     </th>
                                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
@@ -37,6 +40,9 @@
                             <tbody>
                                 <?php foreach ($bills as $b) : ?>
                                     <tr class="bg-white border-b">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 border-r">
+                                            <?= $b['created_at'] ?>
+                                        </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 border-r">
                                             <?= $b['name_user'] ?>
                                         </td>

@@ -28,12 +28,12 @@
                             </div>
                             <div class="flex flex-col justify-between ml-4 flex-grow">
                                 <span class="font-bold text-sm"><?= $product[1] ?></span>
-                                <span class="text-red-500 text-xs"><?= $product[6] ?></span>
+                                <spanx class="text-red-500 text-xs"><?= $product[6] ?></span>
                                 <a href="?mod=cart&action=delete&id=<?= $key ?>" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Xóa</a>
                             </div>
                         </div>
                         <div class="flex justify-center w-1/5">
-                            <input class="mx-2 border text-center w-10" name="quantity[<?= $key ?>]" type="number" value="<?= $product[2] ?>">
+                            <input class="mx-2 border text-center w-10" name="quantity[<?= $key ?>]" type="number" min=1 value="<?= $product[2] ?>">
                         </div>
                         <span class="text-center w-1/5 font-semibold text-sm"><?= currency_format($product[3]) ?></span>
                         <span class="text-center w-1/5 font-semibold text-sm"><?= currency_format($product[4])  ?></span>
@@ -42,7 +42,7 @@
                 <?php endforeach ?>
                 <div>
                     <button type="submit" class="mt-4 inline-block px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out">Cập nhật</button>
-                    <a href="?mod=cart&action=delete" class="mt-4 inline-block px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out">Mọi thứ trở về không</a>
+                    <a href="?mod=cart&action=delete" class="mt-4 inline-block px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out">Xóa hết tất cả</a>
                 </div>
             </form>
 

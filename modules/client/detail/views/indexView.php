@@ -21,6 +21,9 @@
                         <p>Tình trạng: <?= $product['quantity'] == 0 ? "hết hàng" : "còn hàng" ?></p>
                     </div>
                     <div>
+                    <p>Lượt xem: <?= $product['view']?></p>
+                    </div>
+                    <div class="mt-[20px]">
                         <p class="text-[15px] mb-[10px]">Loại:</p>
                         <div class="flex space-x-[15px] mb-[28px]">
                             <?php foreach ($types as $type) : ?>
@@ -104,9 +107,12 @@
                         Gửi bình luận
                     </button>
                 </form>
-            <?php endif; ?>
+            <?php else: ?>
+                <h2 class="text-white bg-[#198754] text-center text-[20px] px-[5px] py-[5px] w-full">Bạn cần <a class="underline hover:text-yellow-300" href="?mod=login">đăng nhập</a> để bình luận</h2>
+                
+                <?php endif ?>
             <?php if (empty($comments)) : ?>
-                <h2 class="dark:text-white">Chưa có bình luận nào</h2>
+                <h2 class="mt-[20px] px-[5px] py-[5px] text-[20px] text-black">Chưa có bình luận nào</h2>
             <?php else : ?>
                 <?php foreach ($comments as $comment) : ?>
                     <article class="p-6 mb-6 text-base bg-white rounded-lg dark:bg-gray-900">
@@ -122,14 +128,14 @@
                         <p class="text-gray-500 dark:text-gray-400">
                             <?= $comment['description'] ?>
                         </p>
-                        <div class="flex items-center mt-4 space-x-4">
+                        <!-- <div class="flex items-center mt-4 space-x-4">
                             <button type="button" class="flex items-center text-sm text-gray-500 hover:underline dark:text-gray-400">
                                 <svg aria-hidden="true" class="mr-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
                                 </svg>
                                 Reply
                             </button>
-                        </div>
+                        </div> -->
                     </article>
                 <?php endforeach; ?>
             <?php endif ?>
