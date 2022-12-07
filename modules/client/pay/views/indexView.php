@@ -10,7 +10,7 @@
                 <h3 class="font-semibold text-gray-600 text-xs uppercase w-2/5">Chi tiết sản phẩm</h3>
                 <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Số lượng</h3>
                 <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Giá</h3>
-                <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Tổng thanh toán</h3>
+                <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Tổng giá một sản phẩm</h3>
             </div>
             <?php $price_total = 0 ?>
             <?php foreach ($products as $key => $product) : ?>
@@ -18,19 +18,20 @@
                     <div class="flex w-2/5">
                         <!-- product -->
                         <div class="w-20">
-                            <img class="w-full object-cover" src="public/images/<?= $product[0] ?>" alt="">
+                            <img class="w-full object-cover" src="public/images/<?= $product['image'] ?>" alt="">
                         </div>
+
                         <div class="flex flex-col justify-between ml-4 flex-grow">
-                            <span class="font-bold text-sm"><?= $product[1] ?></span>
-                            <span class="text-red-500 text-xs"><?= $product[6] ?></span>
+                            <span class="font-bold text-sm"><?= $product['title'] ?></span>
+                            <span class="text-red-500 text-xs"><?= $product['brand_name'] ?></span>
                         </div>
                     </div>
                     <div class="flex justify-center w-1/5">
-                        <div class="mx-2 text-center w-8"><?= $product[2] ?></div>
+                        <div class="mx-2 text-center w-8"><?= $product['quantity'] ?></div>
                     </div>
-                    <span class="text-center w-1/5 font-semibold text-sm"><?= currency_format($product[3]) ?></span>
-                    <span class="text-center w-1/5 font-semibold text-sm"><?= currency_format($product[4]) ?></span>
-                    <?php $price_total += $product[4] ?>
+                    <span class="text-center w-1/5 font-semibold text-sm"><?= currency_format($product['price']) ?></span>
+                    <span class="text-center w-1/5 font-semibold text-sm"><?= currency_format($product['total_price']) ?></span>
+                    <?php $price_total += $product['total_price'] ?>
                 </div>
             <?php endforeach ?>
             <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">

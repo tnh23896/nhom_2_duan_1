@@ -3,8 +3,8 @@
 function update_cart($qty)
 {
   foreach ($_SESSION['cart'] as $key => $item) {
-    $_SESSION['cart'][$key][2] = $qty[$key];
-    $_SESSION['cart'][$key][4] = $qty[$key] * $_SESSION['cart'][$key][3];
+    $_SESSION['cart'][$key]['quantity'] = $qty[$key];
+    $_SESSION['cart'][$key]['total_price'] = $qty[$key] * $_SESSION['cart'][$key]['price'];
   }
 }
 function get_qty_product($id)

@@ -48,3 +48,8 @@ function get_qty_product($id)
   $result = db_fetch_row("SELECT quantity FROM products where id = $id");
   return $result;
 }
+function update_cart($qty, $key)
+{
+  $_SESSION['cart'][$key]['quantity'] = $qty;
+  $_SESSION['cart'][$key]['total_price'] = $qty * $_SESSION['cart'][$key]['price'];
+}

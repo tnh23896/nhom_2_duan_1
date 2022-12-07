@@ -13,6 +13,7 @@
             <?php endforeach; ?>
             <div class="flex mt-10 mb-5">
                 <h3 class="font-semibold text-gray-600 text-xs uppercase w-2/5">Chi tiết sản phẩm</h3>
+                <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">loại</h3>
                 <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Số lượng</h3>
                 <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Giá</h3>
                 <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Tổng thanh toán</h3>
@@ -24,20 +25,21 @@
                         <div class="flex w-2/5">
                             <!-- product -->
                             <div class="w-20">
-                                <img class="w-full object-cover" src="public/images/<?= $product[0] ?>" alt="">
+                                <img class="w-full object-cover" src="public/images/<?= $product['image'] ?>" alt="">
                             </div>
                             <div class="flex flex-col justify-between ml-4 flex-grow">
-                                <span class="font-bold text-sm"><?= $product[1] ?></span>
-                                <spanx class="text-red-500 text-xs"><?= $product[6] ?></span>
+                                <span class="font-bold text-sm"><?= $product['title'] ?></span>
+                                <span class="text-red-500 text-xs"><?= $product['brand_name'] ?></span>
                                 <a href="?mod=cart&action=delete&id=<?= $key ?>" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Xóa</a>
                             </div>
                         </div>
+                        <span class="text-center w-1/5 font-semibold text-sm"><?= $product['type_name'] ?></span>
                         <div class="flex justify-center w-1/5">
-                            <input class="mx-2 border text-center w-10" name="quantity[<?= $key ?>]" type="number" min=1 value="<?= $product[2] ?>">
+                            <input class="mx-2 border text-center w-10" name="quantity[<?= $key ?>]" type="number" min=1 value="<?= $product['quantity'] ?>">
                         </div>
-                        <span class="text-center w-1/5 font-semibold text-sm"><?= currency_format($product[3]) ?></span>
-                        <span class="text-center w-1/5 font-semibold text-sm"><?= currency_format($product[4])  ?></span>
-                        <?php $price_total += $product[4] ?>
+                        <span class="text-center w-1/5 font-semibold text-sm"><?= currency_format($product['price']) ?></span>
+                        <span class="text-center w-1/5 font-semibold text-sm"><?= currency_format($product['total_price'])  ?></span>
+                        <?php $price_total += $product['total_price'] ?>
                     </div>
                 <?php endforeach ?>
                 <div>
@@ -59,13 +61,8 @@
             <h1 class="font-semibold text-2xl border-b pb-8">Tổng</h1>
             <div class="flex justify-between mt-10 mb-5">
                 <span class="font-semibold text-sm uppercase"><?= count($products) ?> sản phẩm</span>
-                <span class="font-semibold text-sm"><?= currency_format($price_total) ?></span>
             </div>
-            <div class="py-10">
-                <label for="promo" class="font-semibold inline-block mb-3 text-sm uppercase">Mã Voucher</label>
-                <input type="text" id="promo" placeholder="Nhập voucher..." class="p-2 text-sm w-full">
-            </div>
-            <button class="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm text-white uppercase">Áp dụng</button>
+
             <div class="border-t mt-8 ">
                 <div class="flex font-semibold justify-between py-6 text-sm uppercase">
                     <span>Tổng thanh toán</span>
