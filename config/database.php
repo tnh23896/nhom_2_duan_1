@@ -16,9 +16,9 @@
  */
 
 $db = array(
-    'hostname' => '202.92.5.49',
-    'username' => 'tmudobpahosting_nhom2',
-    'password' => 'quyduong2k3',
+    'hostname' => '',
+    'username' => 'root',
+    'password' => '',
     'database' => 'tmudobpahosting_nhom2',
 );
 

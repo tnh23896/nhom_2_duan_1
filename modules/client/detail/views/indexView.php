@@ -20,8 +20,12 @@
                         <p class="mx-[15px]">|</p>
                         <p>Tình trạng: <?= $product['quantity'] == 0 ? "hết hàng" : "còn hàng" ?></p>
                     </div>
-                    <div>
+                    <div class="flex justify-between pr-3">
                     <p>Lượt xem: <?= $product['view']?></p>
+                    <p>Đã bán: <?= $product['sold']?></p>
+                    </div>
+                    <div>
+                    <p>Số lượng trong kho: <?= $product['quantity']?></p>
                     </div>
                     <div class="mt-[20px]">
                         <p class="text-[15px] mb-[10px]">Loại:</p>
